@@ -80,22 +80,39 @@
   object-fit: contain;
 }
 
-/* Politics / Sport sidebars: `display: contents` on <app-news-card> can drop adjacent-sibling
-   margins from legacy `.news-normal + .news-normal`; use flex gap as a reliable fallback. */
-.ja-news .news-sidebar {
+/* Politics lead-sidebar only: vertical teaser stack (not Entertainment ja-news-5 grid). */
+.ja-news.ja-news-1 .news-sidebar.col-md-6 {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
 @media (max-width: 767px) {
-  .ja-news .news-sidebar {
+  .ja-news.ja-news-1 .news-sidebar.col-md-6 {
     gap: 23px;
   }
 }
 
-.ja-news .news-sidebar .news-normal + .news-normal {
+.ja-news.ja-news-1 .news-sidebar .news-normal + .news-normal {
   margin-top: 0;
+}
+
+/* Entertainment: three `news-medium col-md-4` in one row under the wide lead */
+.ja-news.ja-news-5 .news-sidebar {
+  display: block;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+
+.ja-news.ja-news-5 .news-sidebar::before,
+.ja-news.ja-news-5 .news-sidebar::after {
+  display: table;
+  content: ' ';
+}
+
+.ja-news.ja-news-5 .news-sidebar::after {
+  clear: both;
 }
 
 /* Sidebar “Follow Us”: slightly more space between stacked brand buttons */

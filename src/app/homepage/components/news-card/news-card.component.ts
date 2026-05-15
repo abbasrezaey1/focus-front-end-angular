@@ -24,6 +24,13 @@ export type NewsCardVariant = 'big' | 'medium' | 'normal' | 'slider' | 'video';
   ],
   templateUrl: './news-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
 })
 export class NewsCardComponent {
   private readonly sanitizer = inject(DomSanitizer);

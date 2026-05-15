@@ -8,6 +8,13 @@ import type { NewsFeatureRowInput } from '../../models/story-teaser.model';
   standalone: true,
   imports: [RouterLink, NgClass],
   templateUrl: './uni-news-medium.component.html',
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
 })
 export class UniNewsMediumComponent {
   @Input({ required: true }) item!: NewsFeatureRowInput;

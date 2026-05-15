@@ -3,17 +3,34 @@
   display: block;
 }
 
-/* `::ng-deep` (deprecated but still the reliable escape hatch) lets these rules reach
-   custom-element hosts rendered inside lazy-loaded child components. Legacy Bootstrap 3
-   `.row.ja-news` + floats expect `.col-*` / `.category-menu` as row participants — without
-   `display: contents` on <app-…> wrappers, Business `col-md-4` and Politics columns break. */
+/* Legacy Bootstrap 3 `.row.ja-news` expects `.col-*` as row participants. Flatten only
+   wrappers that are direct row children — NOT items inside `.news-sidebar` (Entertainment
+   medium grid, Politics teasers, Sport 2-col grid). */
 :host ::ng-deep .t3-main-content .ja-news.row {
-  app-uni-news-medium,
-  app-uni-category-menu,
-  app-category-menu,
-  app-uni-news-lead,
-  app-uni-news-teaser,
-  app-news-card {
+  > app-category-menu,
+  > app-uni-category-menu,
+  > app-uni-news-lead,
+  > app-news-card {
+    display: contents !important;
+  }
+
+  &.ja-news-2 > app-uni-news-medium {
+    display: contents !important;
+  }
+
+  .news-sidebar > .row > app-news-card {
+    display: contents !important;
+  }
+
+  /* Nested sidebar cards keep a box so floats / columns stay contained */
+  .news-sidebar > app-news-card,
+  .news-sidebar > app-uni-news-medium,
+  .news-sidebar > app-uni-news-teaser {
+    display: block !important;
+  }
+
+  /* Entertainment: flatten card host so `.news-medium.col-md-4` sit in `.news-sidebar` */
+  &.ja-news-5 .news-sidebar > app-news-card {
     display: contents !important;
   }
 }
