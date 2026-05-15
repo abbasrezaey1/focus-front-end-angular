@@ -95,6 +95,17 @@
   vertical-align: middle;
 }
 
+/* Header breaking news: static HTML uses shortened copy; clamp to ~2 lines + ellipsis */
+.t3-header .latest-news-header .item-title span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
 /* Politics lead-sidebar only: vertical teaser stack (not Entertainment ja-news-5 grid). */
 .ja-news.ja-news-1 .news-sidebar.col-md-6 {
   display: flex;
