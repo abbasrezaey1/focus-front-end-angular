@@ -40,6 +40,11 @@ import { RouterLink } from '@angular/router';
           min-height: 0 !important;
           padding-top: 0 !important;
           padding-bottom: 0 !important;
+          margin-bottom: 24px;
+        }
+
+        #t3-header.t3-header .t3-header-magazine__imgwrap {
+          margin-bottom: -10px;
         }
 
         #t3-header.t3-header > .row > .col-lg-8 {
