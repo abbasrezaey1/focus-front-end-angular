@@ -420,3 +420,5 @@
 .container-hd .t3-footer .footer-spotlight {
   border-top: 2px solid #000000;
 }
+
+/* Header brand row: see app-site-brand-header component styles (ViewEncapsulation.None). */
