@@ -3,17 +3,26 @@
     <div class="row">
       <div class="col-xs-5 col-sm-6 topbar-left pull-left">
         <div class="navbar-toggle-wrap clearfix pull-left">
-          <button type="button" class="navbar-toggle" title="Menu" (click)="toggleOffCanvas()">
-            <span class="fa fa-bars"></span>
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary off-canvas-toggle hidden-lg hidden-md"
+          <a
+            href="#"
+            class="navbar-toggle"
             title="open"
-            (click)="toggleOffCanvas()"
+            (click)="toggleNavCollapse($event)"
           >
             <span class="fa fa-bars"></span>
-          </button>
+          </a>
+
+          <a
+            href="#"
+            class="btn btn-primary off-canvas-toggle hidden-lg hidden-md"
+            title="open"
+            data-pos="left"
+            data-nav="#t3-off-canvas"
+            data-effect="off-canvas-effect-4"
+            (click)="toggleOffCanvas($event)"
+          >
+            <span class="fa fa-bars"></span>
+          </a>
         </div>
 
         <div class="hidden-xs hidden-sm clearfix">
@@ -145,7 +154,7 @@
     </div>
     <div class="t3-module module">
       <div class="module-inner">
-        <h3 class="module-title"><span>Sections</span></h3>
+        <h3 class="module-title"><span>Main Menu</span></h3>
         <div class="module-ct">
           <ul class="nav nav-pills nav-stacked menu">
             <li><a routerLink="/category/politics" (click)="closeOffCanvas()">Politics</a></li>
@@ -154,6 +163,9 @@
             <li><a routerLink="/category/tech" (click)="closeOffCanvas()">Tech</a></li>
             <li><a routerLink="/category/sport" (click)="closeOffCanvas()">Sport</a></li>
             <li><a routerLink="/category/entertainment" (click)="closeOffCanvas()">Entertainment</a></li>
+            <li>
+              <span class="nav-header item-more">Browse All Sections</span>
+            </li>
           </ul>
         </div>
       </div>

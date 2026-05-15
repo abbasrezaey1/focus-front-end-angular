@@ -95,13 +95,6 @@
   vertical-align: middle;
 }
 
-/* Tablet/mobile: one menu button (off-canvas); hide megamenu collapse toggle without Bootstrap JS */
-@media (max-width: 991px) {
-  .ja-topbar .navbar-toggle-wrap > .navbar-toggle {
-    display: none !important;
-  }
-}
-
 /* Header breaking news: static HTML uses shortened copy; clamp to ~2 lines + ellipsis */
 .t3-header .latest-news-header .item-title span {
   display: -webkit-box;

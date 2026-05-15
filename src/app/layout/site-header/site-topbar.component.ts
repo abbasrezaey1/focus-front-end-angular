@@ -38,17 +38,51 @@ export class SiteTopbarComponent {
 
   searchWord = '';
 
-  toggleOffCanvas(): void {
-    this.offCanvasOpen.update((v) => !v);
-    this.doc.body.classList.toggle('off-canvas-open', this.offCanvasOpen());
+  /** First hamburger: toggles `.t3-navbar-collapse` (category list), like static Bootstrap collapse. */
+  toggleNavCollapse(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const panel = this.doc.querySelector('#t3-mainnav .t3-navbar-collapse');
+    if (!(panel instanceof HTMLElement)) {
+      return;
+    }
+
+    const opening = !panel.classList.contains('in');
+    if (opening) {
+      this.closeOffCanvas();
+      panel.classList.add('in');
+    } else {
+      panel.classList.remove('in');
+    }
+  }
+
+  /** Second hamburger: off-canvas sidebar (Top Menu + Main Menu), like static `off-canvas.js`. */
+  toggleOffCanvas(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (this.offCanvasOpen()) {
+      this.closeOffCanvas();
+      return;
+    }
+
+    this.closeNavCollapse();
+    this.offCanvasOpen.set(true);
+
+    const body = this.doc.body;
+    body.classList.add('off-canvas-open', 'off-canvas-effect-4', 'off-canvas-left');
   }
 
   closeOffCanvas(): void {
     this.offCanvasOpen.set(false);
-    this.doc.body.classList.remove('off-canvas-open');
+    this.doc.body.classList.remove('off-canvas-open', 'off-canvas-effect-4', 'off-canvas-left', 'noscroll');
   }
 
-  /** Same as static `js/script(1).js`: `.btn-search` toggles `.head-search.btn-open`. */
+  closeNavCollapse(): void {
+    this.doc.querySelector('#t3-mainnav .t3-navbar-collapse')?.classList.remove('in');
+  }
+
   toggleSearch(event: Event): void {
     event.stopPropagation();
     const open = !this.searchOpen();
@@ -59,7 +93,6 @@ export class SiteTopbarComponent {
     }
   }
 
-  /** Same as static: `.btn-social` toggles `.head-social.btn-open`. */
   toggleSocial(event: Event): void {
     event.stopPropagation();
     const open = !this.socialOpen();
