@@ -28,31 +28,54 @@
         </div>
       </div>
 
-      <div class="col-xs-7 col-sm-6 topbar-right pull-right">
-        <div class="head-search">
-          <button type="button" class="btn btn-search" name="subject" aria-label="Search" (click)="submitSearch()">
+      <div
+        class="col-xs-7 col-sm-6 topbar-right pull-right"
+        [class.btn-open]="searchOpen() || socialOpen()"
+      >
+        <div #searchPanel class="head-search" [class.btn-open]="searchOpen()">
+          <button
+            type="button"
+            class="btn btn-search"
+            name="subject"
+            aria-label="Search"
+            [attr.aria-expanded]="searchOpen()"
+            (click)="toggleSearch($event)"
+          >
             <span class="fa fa-search"></span>
           </button>
           <div class="search">
-            <form class="form-inline form-search" (ngSubmit)="submitSearch()">
+            <form
+              class="form-inline form-search"
+              (ngSubmit)="submitSearch()"
+              (click)="$event.stopPropagation()"
+            >
               <label for="site-search" class="element-invisible">Search</label>
               <input
+                #searchInput
                 id="site-search"
                 name="searchword"
                 class="form-control search-query"
                 type="search"
                 placeholder="Search ..."
+                maxlength="200"
                 [(ngModel)]="searchWord"
                 aria-label="Search"
               />
             </form>
           </div>
         </div>
-        <div class="head-social">
-          <button type="button" class="btn btn-social" name="subject" aria-label="Share">
+        <div #socialPanel class="head-social" [class.btn-open]="socialOpen()">
+          <button
+            type="button"
+            class="btn btn-social"
+            name="subject"
+            aria-label="Share"
+            [attr.aria-expanded]="socialOpen()"
+            (click)="toggleSocial($event)"
+          >
             <span class="fa fa-share-alt"></span>
           </button>
-          <div class="custom">
+          <div class="custom" (click)="$event.stopPropagation()">
             <ul class="social-list">
               <li>
                 <a
