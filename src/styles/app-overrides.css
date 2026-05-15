@@ -167,10 +167,9 @@
 }
 
 @media (min-width: 992px) {
-  .t3-megamenu .nav > li.dropdown:hover > .dropdown-menu.mega-dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+  /* Fade/open handled by `SiteMegamenuHoverDirective` + legacy `.t3-megamenu.animate.fading` CSS */
+  .t3-megamenu.animate .mega.open > .mega-dropdown-menu,
+  .t3-megamenu.animate .mega.animating > .mega-dropdown-menu {
     z-index: 500;
   }
 
@@ -178,6 +177,22 @@
     position: relative;
     z-index: 300;
   }
+}
+
+/* Brick masthead: dim siblings on hover (static `.brick-layout:hover > div`) */
+.brick-layout > app-uni-brick-tile {
+  display: block;
+}
+
+.brick-layout:hover > app-uni-brick-tile,
+.brick-layout:hover > div.brick-article {
+  opacity: 0.5;
+  transition: opacity 500ms;
+}
+
+.brick-layout:hover > app-uni-brick-tile:hover,
+.brick-layout:hover > div.brick-article:hover {
+  opacity: 1;
 }
 
 /* “Browse All Sections”: legacy floats + implicit row stretch made short columns (e.g. Tech)

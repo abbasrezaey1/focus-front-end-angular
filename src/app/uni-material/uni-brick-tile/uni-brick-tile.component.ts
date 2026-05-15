@@ -8,6 +8,13 @@ import type { HomeBrickItem } from '../../models/content-blocks.model';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './uni-brick-tile.component.html',
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
 })
 export class UniBrickTileComponent {
   private readonly sanitizer = inject(DomSanitizer);
