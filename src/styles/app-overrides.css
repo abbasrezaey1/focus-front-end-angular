@@ -11,7 +11,8 @@
 }
 
 /* Top sponsor strip: neutral class names (not `ja-banner` / `banneritem`) so ad blockers
-   are less likely to hide the image; styles mirror legacy `.container-hd .ja-banner.banner-top`. */
+   are less likely to hide the image. Box model matches static `.ja-banner.banner-top` +
+   inner `.bannergroup` (28px/16px outer pad, 16px inner, ~179px total at desktop). */
 .container-hd app-site-header .site-hd-sponsor {
   position: relative;
   z-index: 200;
@@ -23,12 +24,22 @@
   box-sizing: border-box;
   overflow: visible;
   background: #f6f6f6;
-  min-height: 0;
+  padding: 28px 16px;
+  min-height: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-hd app-site-header .site-hd-sponsor .container {
+  width: 100%;
 }
 
 .container-hd app-site-header .site-hd-sponsor__inner {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {

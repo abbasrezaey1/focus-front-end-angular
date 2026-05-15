@@ -14,6 +14,10 @@ import { LEADERBOARD_BANNER } from '../../content/site-chrome.data';
         display: block;
       }
 
+      .site-hd-sponsor {
+        box-sizing: border-box;
+      }
+
       .site-hd-sponsor__img {
         display: block !important;
         visibility: visible !important;
