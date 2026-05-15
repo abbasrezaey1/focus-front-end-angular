@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { SiteOffCanvasService } from './site-off-canvas.service';
 
 /** Top utility bar: nav links, expandable search, share/social strip (JA Focus `index.html`). */
 @Component({
@@ -27,18 +28,17 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 export class SiteTopbarComponent {
   private readonly doc = inject(DOCUMENT);
   private readonly router = inject(Router);
+  private readonly offCanvas = inject(SiteOffCanvasService);
 
   private readonly searchPanel = viewChild<ElementRef<HTMLElement>>('searchPanel');
   private readonly socialPanel = viewChild<ElementRef<HTMLElement>>('socialPanel');
   private readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
-  readonly offCanvasOpen = signal(false);
   readonly searchOpen = signal(false);
   readonly socialOpen = signal(false);
 
   searchWord = '';
 
-  /** First hamburger: toggles `.t3-navbar-collapse` (category list), like static Bootstrap collapse. */
   toggleNavCollapse(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
@@ -50,33 +50,21 @@ export class SiteTopbarComponent {
 
     const opening = !panel.classList.contains('in');
     if (opening) {
-      this.closeOffCanvas();
+      this.offCanvas.close();
       panel.classList.add('in');
     } else {
       panel.classList.remove('in');
     }
   }
 
-  /** Second hamburger: off-canvas sidebar (Top Menu + Main Menu), like static `off-canvas.js`. */
   toggleOffCanvas(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
 
-    if (this.offCanvasOpen()) {
-      this.closeOffCanvas();
-      return;
+    if (!this.offCanvas.open()) {
+      this.closeNavCollapse();
     }
-
-    this.closeNavCollapse();
-    this.offCanvasOpen.set(true);
-
-    const body = this.doc.body;
-    body.classList.add('off-canvas-open', 'off-canvas-effect-4', 'off-canvas-left');
-  }
-
-  closeOffCanvas(): void {
-    this.offCanvasOpen.set(false);
-    this.doc.body.classList.remove('off-canvas-open', 'off-canvas-effect-4', 'off-canvas-left', 'noscroll');
+    this.offCanvas.toggle();
   }
 
   closeNavCollapse(): void {

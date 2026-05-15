@@ -1,0 +1,43 @@
+<div
+  id="t3-off-canvas"
+  class="t3-off-canvas hidden-lg hidden-md off-canvas-effect-4 off-canvas-left"
+  [class.off-canvas-current]="offCanvas.open()"
+>
+  <div class="t3-off-canvas-header">
+    <h2 class="t3-off-canvas-header-title">Sidebar</h2>
+    <button type="button" class="close" aria-label="close" (click)="close()">&times;</button>
+  </div>
+  <div class="t3-off-canvas-body">
+    <div class="t3-module module">
+      <div class="module-inner">
+        <h3 class="module-title"><span>Top Menu</span></h3>
+        <div class="module-ct">
+          <ul class="nav nav-pills nav-stacked menu">
+            <li><a routerLink="/" (click)="close()">Home</a></li>
+            <li><a routerLink="/about" (click)="close()">About</a></li>
+            <li><a routerLink="/blog" (click)="close()">Blog</a></li>
+            <li><a routerLink="/contact" (click)="close()">Contact</a></li>
+            <li><a routerLink="/videos" (click)="close()">Videos</a></li>
+            <li><a routerLink="/gallery" (click)="close()">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="t3-module module">
+      <div class="module-inner">
+        <h3 class="module-title"><span>Main Menu</span></h3>
+        <div class="module-ct">
+          <ul class="nav nav-pills nav-stacked menu">
+            <li><a routerLink="/category/politics" (click)="close()">Politics</a></li>
+            <li><a routerLink="/category/business" (click)="close()">Business</a></li>
+            <li><a routerLink="/category/world" (click)="close()">World</a></li>
+            <li><a routerLink="/category/tech" (click)="close()">Tech</a></li>
+            <li><a routerLink="/category/sport" (click)="close()">Sport</a></li>
+            <li><a routerLink="/category/entertainment" (click)="close()">Entertainment</a></li>
+            <li><span class="nav-header item-more">Browse All Sections</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

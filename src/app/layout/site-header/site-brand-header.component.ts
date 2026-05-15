@@ -71,8 +71,8 @@ import { RouterLink } from '@angular/router';
           width: 100% !important;
           max-width: 100% !important;
           text-align: center !important;
-          margin-top: 32px;
-          margin-bottom: 32px;
+          margin-top: 21px;
+          margin-bottom: 21px;
           padding: 0 !important;
         }
 
