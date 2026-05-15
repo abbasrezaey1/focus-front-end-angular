@@ -1,6 +1,6 @@
 # Focus Front End (Angular)
 
-Angular 18 standalone front end for the **JA Focus** news/magazine layout. Migrated from the static HTML export (`asindex`) into a component-based app with routing, reusable homepage widgets, and legacy theme CSS preserved for visual parity.
+Angular 18 standalone front end for the **JA Focus** news and magazine layout: routing, reusable homepage widgets, and the original theme CSS kept for visual parity with the static demo.
 
 [![Angular](https://img.shields.io/badge/Angular-18.2-red?logo=angular)](https://angular.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -8,16 +8,16 @@ Angular 18 standalone front end for the **JA Focus** news/magazine layout. Migra
 
 ## Features
 
-- **Homepage** — brick masthead, Politics/Business/World sections, sidebar widgets, Tech slider, Sport/Entertainment, video lists
-- **Site chrome** — top sponsor strip, utility topbar, brand header, mega menu navigation
-- **Inner pages** — article, category, subcategory, search, about, contact, blog, gallery, videos
-- **Legacy theme** — Bootstrap 3 + JA Focus styles under `src/styles/legacy/`
-- **Standalone components** — no NgModules; lazy-loaded routes where appropriate
+- Homepage — brick masthead, Politics / Business / World, sidebar widgets, Tech slider, Sport / Entertainment, video lists
+- Site chrome — top sponsor strip, utility topbar, brand header, mega menu
+- Inner pages — article, category, subcategory, search, about, contact, blog, gallery, videos
+- Legacy theme — Bootstrap 3 + JA Focus styles in `src/styles/legacy/`
+- Standalone components — no NgModules
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) **18.x** or **20.x** (LTS recommended)
-- npm **9+**
+- [Node.js](https://nodejs.org/) 18.x or 20.x (LTS)
+- npm 9+
 
 ## Quick start
 
@@ -36,31 +36,28 @@ Open [http://localhost:4200](http://localhost:4200).
 npm run build
 ```
 
-Output: `dist/asindex-web/browser/`
+Built files: `dist/focus-front-end-angular/browser/`
 
-Preview the production build locally:
+Local preview:
 
 ```bash
-npx http-server dist/asindex-web/browser -p 8080
+npx http-server dist/focus-front-end-angular/browser -p 8080
 ```
 
-## Project structure
+## Project layout
 
-```
-src/
-├── app/
-│   ├── content/          # Site chrome data (leaderboard, nav)
-│   ├── homepage/         # Home widgets & news sections
-│   ├── layout/           # Header, footer, main layout
-│   ├── pages/            # Routed page components
-│   ├── ui/               # Shared UI pieces
-│   └── uni-material/     # News cards, teasers, bricks
-├── assets/images/        # Copied to /images at build time
-├── styles/
-│   ├── legacy/           # Ported JA Focus template CSS
-│   └── app-overrides.css # Angular-specific layout fixes
-public/                   # Static assets (fonts, reference HTML)
-```
+| Path | Purpose |
+|------|---------|
+| `src/app/content/` | Site chrome data (leaderboard, nav) |
+| `src/app/homepage/` | Home widgets and news sections |
+| `src/app/layout/` | Header, footer, main layout |
+| `src/app/pages/` | Routed pages |
+| `src/app/ui/` | Shared UI |
+| `src/app/uni-material/` | News cards, teasers, bricks, stock widget |
+| `src/assets/images/` | Images (served as `/images/` at build) |
+| `src/styles/legacy/` | Ported JA Focus CSS |
+| `src/styles/app-overrides.css` | Angular layout tweaks |
+| `public/` | Static assets (fonts, reference HTML) |
 
 ## Routes
 
@@ -72,54 +69,47 @@ public/                   # Static assets (fonts, reference HTML)
 | `/contact` | Contact |
 | `/videos` | Videos |
 | `/gallery` | Gallery |
-| `/search` | Search (`?q=` supported) |
+| `/search` | Search (`?q=` query) |
 | `/article` | Article |
 | `/category` | Category |
 | `/subcategory` | Subcategory |
-| `**` | In-layout 404 |
+| `/**` | In-layout 404 |
 
-Login, registration, and offline static pages are intentionally omitted.
+Login, registration, and offline pages are not included.
 
-## Assets & images
+## Images
 
-Images live in `src/assets/images/` and are emitted to `/images/` at build time (see `angular.json`). Use root-relative URLs in templates:
+Put files in `src/assets/images/`. Templates use root-relative URLs:
 
 ```html
 <img src="/images/news-1.jpg" alt="..." />
 ```
 
-Top sponsor creative: `/images/top-leaderboard.jpg`.
+Top sponsor: `/images/top-leaderboard.jpg`.
 
-## Scripts
+## npm scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm start` | Dev server (`ng serve`) |
+| Script | Description |
+|--------|-------------|
+| `npm start` | Dev server |
 | `npm run build` | Production build |
-| `npm run watch` | Development build with watch |
+| `npm run watch` | Dev build with watch |
 
-## Ad blockers & top banner
+## Top banner and ad blockers
 
-The top sponsor strip uses neutral class names (`site-hd-sponsor`) instead of `ja-banner` / `banneritem` to reduce false positives from ad blockers. If the banner is missing locally, disable the blocker for `localhost` or hard-refresh.
+The sponsor strip uses neutral classes (`site-hd-sponsor`) instead of `ja-banner` / `banneritem`. If the image is missing on localhost, disable the ad blocker for that host or hard-refresh.
 
-## Tech stack
+## Stack
 
-- Angular 18 (standalone, signals where used)
+- Angular 18 (standalone)
 - Angular Router
-- Font Awesome 4 (legacy icon set matching the template)
+- Font Awesome 4
 - RxJS 7
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/my-change`
-3. Commit with a clear message
-4. Open a pull request
 
 ## License
 
 MIT — see [LICENSE](LICENSE).
 
-## Acknowledgments
+## Credits
 
-Layout and styling based on the **JA Focus** Joomla template (JoomlArt). Static reference export used for migration parity.
+Layout and styling based on the **JA Focus** template (JoomlArt). Migrated from a static HTML export for demo and learning use.

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "asindex-web": {
+    "focus-front-end-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/asindex-web",
+            "outputPath": "dist/focus-front-end-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "asindex-web:build:production"
+              "buildTarget": "focus-front-end-angular:build:production"
             },
             "development": {
-              "buildTarget": "asindex-web:build:development"
+              "buildTarget": "focus-front-end-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "asindex-web:build"
+            "buildTarget": "focus-front-end-angular:build"
           }
         }
       }
