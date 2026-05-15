@@ -26,7 +26,7 @@ import { LEADERBOARD_BANNER } from '../../content/site-chrome.data';
         margin-right: auto;
         max-width: 100%;
         width: auto;
-        height: auto;
+        height: 90px;
         max-height: 90px;
         object-fit: contain;
       }

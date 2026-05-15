@@ -11,8 +11,8 @@
 }
 
 /* Top sponsor strip: neutral class names (not `ja-banner` / `banneritem`) so ad blockers
-   are less likely to hide the image. Box model matches static `.ja-banner.banner-top` +
-   inner `.bannergroup` (28px/16px outer pad, 16px inner, ~179px total at desktop). */
+   are less likely to hide the image. Matches static index `ja-banner.banner-top` (~179px):
+   outer pad 28×16, inner pad 16×0, creative exactly 90px tall. */
 .container-hd app-site-header .site-hd-sponsor {
   position: relative;
   z-index: 200;
@@ -22,10 +22,9 @@
   margin-right: 0;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden;
   background: #f6f6f6;
   padding: 28px 16px;
-  min-height: 154px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,13 +32,17 @@
 
 .container-hd app-site-header .site-hd-sponsor .container {
   width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .container-hd app-site-header .site-hd-sponsor__inner {
   padding: 16px 0;
+  margin: 0;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  line-height: 0;
 }
 
 @media (max-width: 767px) {
@@ -86,9 +89,10 @@
   margin-right: auto;
   max-width: 100%;
   width: auto;
-  height: auto;
+  height: 90px;
   max-height: 90px;
   object-fit: contain;
+  vertical-align: middle;
 }
 
 /* Politics lead-sidebar only: vertical teaser stack (not Entertainment ja-news-5 grid). */
