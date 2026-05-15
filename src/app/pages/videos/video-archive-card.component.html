@@ -1,0 +1,49 @@
+<div class="item col col-sm-4">
+  <article class="default cat-purple">
+    <div class="item-thumb-wrap">
+      <div
+        appJaVideoList
+        class="item-image ja-video-list"
+        [attr.data-url]="item.dataUrl"
+        [attr.data-title]="item.dataTitle"
+        [attr.data-video]="item.dataVideo"
+      >
+        <span class="btn-play" role="button" tabindex="0" aria-label="Play video">
+          <span class="ico ico-play"></span>
+        </span>
+        <a routerLink="/article" itemprop="url">
+          <img [src]="item.imageSrc" [alt]="item.imageAlt" itemprop="thumbnailUrl" />
+        </a>
+        <div class="video-wrapper"></div>
+      </div>
+    </div>
+    <div class="item-content">
+      <aside class="article-aside clearfix">
+        <dl class="article-info muted">
+          <dt class="article-info-term">Details</dt>
+          <dd class="category-name hasTooltip" title="Category: ">
+            <i class="fa fa-folder-open"></i>
+            <a routerLink="/article"><span itemprop="genre">{{ item.genre }}</span></a>
+          </dd>
+          <dd class="published hasTooltip" title="Published: ">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2022-03-09T02:08:58+00:00" itemprop="datePublished">
+              09 March 2022
+            </time>
+          </dd>
+        </dl>
+        <app-article-tools-dropdown [showEmail]="true" printLink="/article" />
+      </aside>
+
+      <header class="article-header clearfix">
+        <h2 class="article-title" itemprop="headline">
+          <a routerLink="/article" itemprop="url" [title]="item.title">{{ item.title }}</a>
+        </h2>
+      </header>
+
+      <section class="article-intro clearfix" itemprop="articleBody">
+        {{ item.intro }}
+      </section>
+    </div>
+  </article>
+</div>

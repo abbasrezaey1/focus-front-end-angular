@@ -1,4 +1,12 @@
-<div class="item" [class.column-1]="columnClass === 'column-1'" [class.column-2]="columnClass === 'column-2'" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<div
+  class="item"
+  [class.column-1]="columnClass === 'column-1'"
+  [class.column-2]="columnClass === 'column-2'"
+  [class.column-3]="columnClass === 'column-3'"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
   <article [class]="teaser.articleClass">
     <div [class]="teaser.imageWrapperClass" itemprop="image">
       <a [routerLink]="articleLink" itemprop="url">

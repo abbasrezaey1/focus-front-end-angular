@@ -1,23 +1,80 @@
 <div id="t3-mainbody" class="container t3-mainbody">
   <div class="row">
     <div id="t3-content" class="t3-content col-xs-12">
-      <div class="item-page">
-        <article class="default">
-          <section class="article-content clearfix">
-            <h1>Gallery</h1>
-            <p>Photo grid migrated from the static gallery page (BlueImp styles are included globally for future use).</p>
-            <div class="row">
-              @for (i of [1, 2, 3, 4, 5, 6]; track i) {
-                <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 12px">
-                  <a routerLink="/article">
-                    <img class="img-responsive" src="/images/news-14.jpeg" alt="Gallery item {{ i }}" />
-                  </a>
+      <div class="gallery blog">
+        <div class="ja-gallery-list-wrap">
+          <div
+            id="ja-gallery-detail-23"
+            class="carousel carousel-thumbnail carousel-fade slide"
+          >
+            <ol class="carousel-indicators">
+              @for (slide of featured.slides; track slide.href; let i = $index) {
+                <li
+                  [class.active]="activeSlide() === i"
+                  (click)="selectSlide(i)"
+                  role="button"
+                  [attr.aria-label]="'Slide ' + (i + 1)"
+                ></li>
+              }
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+              @for (slide of featured.slides; track slide.href; let i = $index) {
+                <div class="item" [class.active]="activeSlide() === i">
+                  <div class="item-image" itemprop="image">
+                    <img [src]="slide.href" alt="" itemprop="thumbnailUrl" />
+                  </div>
                 </div>
               }
             </div>
-            <p><a routerLink="/">Home</a></p>
-          </section>
-        </article>
+
+            <a
+              class="left carousel-control"
+              href="#"
+              role="button"
+              (click)="prevSlide($event)"
+            >
+              <span class="fa fa-angle-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="right carousel-control"
+              href="#"
+              role="button"
+              (click)="nextSlide($event)"
+            >
+              <span class="fa fa-angle-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+          <div class="article-content">
+            <div class="article-header">
+              <h2>
+                <a routerLink="/article" [title]="featured.title">{{ featured.title }}</a>
+              </h2>
+            </div>
+            <div class="article-intro">
+              <p>{{ featured.intro }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="item-container">
+          @for (row of rows; track $index; let ri = $index) {
+            <div class="items-row cols-3">
+              <div class="equal-height equal-height-child row-{{ ri }} row">
+                @for (item of row; track item.id) {
+                  <app-gallery-archive-card [item]="item" />
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <div id="infinity-next" class="btn btn-primary disabled" data-pages="1">
+          That's All
+        </div>
       </div>
     </div>
   </div>

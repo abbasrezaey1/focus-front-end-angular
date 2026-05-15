@@ -2,11 +2,12 @@ import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import type { MostReadGallerySlide, MostReadRow, MostReadTab } from '../../models/news-ui.model';
+import { JaVideoListDirective } from '../../directives/ja-video-list.directive';
 
 @Component({
   selector: 'app-most-read-tabs',
   standalone: true,
-  imports: [RouterLink, NgClass],
+  imports: [RouterLink, NgClass, JaVideoListDirective],
   templateUrl: './most-read-tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

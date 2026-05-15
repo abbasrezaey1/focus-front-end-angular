@@ -11,7 +11,7 @@ import { ArticleToolsDropdownComponent } from '../article-tools-dropdown/article
 })
 export class BlogPostTeaserComponent {
   @Input({ required: true }) teaser!: BlogTeaser;
-  @Input({ required: true }) columnClass!: 'column-1' | 'column-2';
+  @Input({ required: true }) columnClass!: 'column-1' | 'column-2' | 'column-3';
   @Input() genreLink: string | any[] = '/gallery';
   @Input() articleLink: string | any[] = '/article';
 }

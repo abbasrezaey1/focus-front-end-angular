@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.carousel-inner > .item {
+  display: none;
+}
+
+.carousel-inner > .item.active {
+  display: block;
+}
+
+.carousel-indicators li {
+  cursor: pointer;
+}

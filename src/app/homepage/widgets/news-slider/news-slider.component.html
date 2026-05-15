@@ -1,22 +1,49 @@
 @if (compact) {
   <div id="ja-new-116" class="ja-news-8 brick-layout mod-nopadding mod-noborder">
-    <div class="swiper-container swiper-container-horizontal swiper-container-android">
-      <div class="swiper-wrapper">
+    <div
+      #sliderContainer
+      class="swiper-container swiper-container-horizontal swiper-container-android"
+    >
+      <div class="swiper-wrapper" [style.transform]="wrapperTransform()">
         @for (item of sliderArticles(); track item.title) {
           <app-news-card
             variant="slider"
             [item]="item"
             [accentClass]="''"
-            [slideWidthPx]="resolvedSlideWidth()"
+            [slideWidthPx]="slideWidthForCard()"
           />
         }
       </div>
-      <div class="swiper-pagination"></div>
+      @if (sliderArticles().length > 1) {
+        <div class="swiper-pagination">
+          @for (item of sliderArticles(); track item.title; let i = $index) {
+            <span
+              class="swiper-pagination-bullet"
+              [class.swiper-pagination-bullet-active]="activeIndex() === i"
+              (click)="goTo(i)"
+              role="button"
+              [attr.aria-label]="'Slide ' + (i + 1)"
+            ></span>
+          }
+        </div>
+      }
       <div class="swiper-button">
-        <div class="swiper-button-next swiper-button-dark">
+        <div
+          class="swiper-button-next swiper-button-dark"
+          [class.swiper-button-disabled]="!canNext()"
+          (click)="next()"
+          role="button"
+          aria-label="Next slide"
+        >
           <span class="fa fa-angle-right"></span>
         </div>
-        <div class="swiper-button-prev swiper-button-dark swiper-button-disabled">
+        <div
+          class="swiper-button-prev swiper-button-dark"
+          [class.swiper-button-disabled]="!canPrev()"
+          (click)="prev()"
+          role="button"
+          aria-label="Previous slide"
+        >
           <span class="fa fa-angle-left"></span>
         </div>
       </div>
@@ -28,21 +55,36 @@
     @if (menuItems.length || mega) {
       <app-category-menu [items]="menuItems" [mega]="mega" />
     }
-    <div class="swiper-container swiper-container-horizontal swiper-container-android">
-      <div class="swiper-wrapper">
+    <div
+      #sliderContainer
+      class="swiper-container swiper-container-horizontal swiper-container-android"
+    >
+      <div class="swiper-wrapper" [style.transform]="wrapperTransform()">
         @for (item of sliderArticles(); track item.title) {
           <app-news-card
             variant="slider"
             [item]="item"
             [accentClass]="''"
-            [slideWidthPx]="resolvedSlideWidth()"
+            [slideWidthPx]="slideWidthForCard()"
           />
         }
       </div>
-      <div class="swiper-button-next swiper-button-dark">
+      <div
+        class="swiper-button-next swiper-button-dark"
+        [class.swiper-button-disabled]="!canNext()"
+        (click)="next()"
+        role="button"
+        aria-label="Next slide"
+      >
         <i class="fa fa-angle-right"></i>
       </div>
-      <div class="swiper-button-prev swiper-button-dark swiper-button-disabled">
+      <div
+        class="swiper-button-prev swiper-button-dark"
+        [class.swiper-button-disabled]="!canPrev()"
+        (click)="prev()"
+        role="button"
+        aria-label="Previous slide"
+      >
         <i class="fa fa-angle-left"></i>
       </div>
     </div>

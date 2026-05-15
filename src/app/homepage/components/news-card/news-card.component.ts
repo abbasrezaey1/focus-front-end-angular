@@ -8,6 +8,7 @@ import { UniNewsLeadComponent } from '../../../uni-material/uni-news-lead/uni-ne
 import { UniNewsMediumComponent } from '../../../uni-material/uni-news-medium/uni-news-medium.component';
 import { ArticleMetaComponent } from '../article-meta/article-meta.component';
 import { UniNewsTeaserComponent } from '../../../uni-material/uni-news-teaser/uni-news-teaser.component';
+import { JaVideoListDirective } from '../../directives/ja-video-list.directive';
 
 export type NewsCardVariant = 'big' | 'medium' | 'normal' | 'slider' | 'video';
 
@@ -21,6 +22,7 @@ export type NewsCardVariant = 'big' | 'medium' | 'normal' | 'slider' | 'video';
     UniNewsMediumComponent,
     UniNewsTeaserComponent,
     ArticleMetaComponent,
+    JaVideoListDirective,
   ],
   templateUrl: './news-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

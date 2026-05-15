@@ -1,14 +1,13 @@
-import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import type { MostReadRow } from '../../data/static-blog-pages.data';
+import { MostReadTabsComponent } from '../../homepage/widgets/most-read-tabs/most-read-tabs.component';
+import type { MostReadTab } from '../../homepage/models/news-ui.model';
 
 @Component({
   selector: 'app-sidebar-most-read',
   standalone: true,
-  imports: [RouterLink, NgClass],
+  imports: [MostReadTabsComponent],
   templateUrl: './sidebar-most-read.component.html',
 })
 export class SidebarMostReadComponent {
-  @Input({ required: true }) rows!: MostReadRow[];
+  @Input({ required: true }) tabs!: MostReadTab[];
 }

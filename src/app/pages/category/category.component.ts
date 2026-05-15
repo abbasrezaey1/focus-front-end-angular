@@ -8,7 +8,8 @@ import {
   isCategorySlug,
   type CategorySlug,
 } from '../../content/category-page.data';
-import { SIDEBAR_LATEST_NEWS_ITEMS, SIDEBAR_MOST_READ_WEEK } from '../../data/static-blog-pages.data';
+import { SIDEBAR_LATEST_NEWS_ITEMS } from '../../data/static-blog-pages.data';
+import { mostReadTabs } from '../home/home-sections.data';
 import { BlogPostTeaserComponent } from '../../ui/blog-post-teaser/blog-post-teaser.component';
 import { SidebarFollowUsComponent } from '../../ui/sidebar-follow-us/sidebar-follow-us.component';
 import { SidebarLatestNewsComponent } from '../../ui/sidebar-latest-news/sidebar-latest-news.component';
@@ -46,7 +47,7 @@ export class CategoryComponent {
   });
 
   readonly latestNewsItems = SIDEBAR_LATEST_NEWS_ITEMS;
-  readonly mostReadWeek = SIDEBAR_MOST_READ_WEEK;
+  readonly mostReadTabs = mostReadTabs;
 
   constructor() {
     effect(() => {

@@ -3,11 +3,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import type { Article, EditorSidebarEntry } from '../../models/news-ui.model';
 import { NewsCardComponent } from '../../components/news-card/news-card.component';
 import { RouterLink } from '@angular/router';
+import { JaVideoListDirective } from '../../directives/ja-video-list.directive';
 
 @Component({
   selector: 'app-sidebar-news-widget',
   standalone: true,
-  imports: [NewsCardComponent, RouterLink, NgClass],
+  imports: [NewsCardComponent, RouterLink, NgClass, JaVideoListDirective],
   templateUrl: './sidebar-news-widget.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

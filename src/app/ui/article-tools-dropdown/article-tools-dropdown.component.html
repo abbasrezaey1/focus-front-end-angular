@@ -1,5 +1,5 @@
-<div class="btn-group pull-right">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" (click)="$event.preventDefault()">
+<div class="btn-group pull-right" [class.open]="open()">
+  <a class="btn dropdown-toggle" href="#" (click)="toggle($event)">
     <span class="fa fa-cog"></span>
     <span class="caret"><span class="element-invisible">Empty</span></span>
   </a>

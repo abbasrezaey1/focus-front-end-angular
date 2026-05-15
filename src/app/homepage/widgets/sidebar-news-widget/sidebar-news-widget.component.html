@@ -13,18 +13,20 @@
         @case ('video') {
           <div class="news-normal clearfix" [ngClass]="accentClass">
             <div
+              appJaVideoList
               class="item-image ja-video-list"
               [attr.data-url]="e.video.dataUrl"
               [attr.data-title]="e.video.dataTitle"
               [attr.data-video]="e.video.dataVideo"
             >
-              <a class="btn-play" href="/article">
+              <span class="btn-play" role="button" tabindex="0" aria-label="Play video">
                 <span class="ico ico-play"></span>
                 <span class="empty">empty</span>
-              </a>
+              </span>
               <a [routerLink]="e.item.titleLink" itemprop="url">
                 <img [src]="e.item.imageSrc" [alt]="e.item.imageAlt" itemprop="thumbnailUrl" />
               </a>
+              <div class="video-wrapper"></div>
             </div>
             <div class="article-content">
               <aside class="article-aside aside-before-title">

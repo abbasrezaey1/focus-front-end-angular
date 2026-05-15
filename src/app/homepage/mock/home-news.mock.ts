@@ -14,7 +14,7 @@ export const MOCK_LEAD_ARTICLE: Article = {
   categoryLink: '/article',
   dateLine: 'Mar 9, 2022',
   title: 'Example lead headline for reusable section',
-  titleLink: '/subcategory',
+  titleLink: '/article',
   intro: 'Short dek text used by the big card variant.',
 };
 

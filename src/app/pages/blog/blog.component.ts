@@ -1,28 +1,26 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BLOG_TEASER_ROWS } from '../../content/blog-page.data';
+import { BlogPostTeaserComponent } from '../../ui/blog-post-teaser/blog-post-teaser.component';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BlogPostTeaserComponent],
   templateUrl: './blog.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogComponent {
-  readonly posts = [
-    {
-      title: 'Merkel Vows to Stay on Course Despite Party Setback',
-      teaser: 'Summary of the political context and next steps for the coalition.',
-      img: '/images/news-14.jpeg',
-    },
-    {
-      title: 'Spain on the brink: violence erupts as police chief sacked',
-      teaser: 'Regional tensions and institutional responses in focus.',
-      img: '/images/news-7.jpg',
-    },
-    {
-      title: 'Business News and Financial News',
-      teaser: 'Markets, currencies, and corporate headlines in brief.',
-      img: '/images/news-16.jpeg',
-    },
-  ];
+  readonly rows = BLOG_TEASER_ROWS;
+  readonly extraPages = [2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
+
+  columnClass(index: number): 'column-1' | 'column-2' | 'column-3' {
+    if (index === 0) {
+      return 'column-1';
+    }
+    if (index === 1) {
+      return 'column-2';
+    }
+    return 'column-3';
+  }
 }

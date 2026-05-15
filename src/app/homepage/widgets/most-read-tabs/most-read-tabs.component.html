@@ -99,15 +99,16 @@
                       <div class="news-normal clearfix" [ngClass]="row.accentClass">
                         <div class="intro-image-wrap">
                           <div
+                            appJaVideoList
                             class="item-image ja-video-list"
                             [attr.data-url]="row.video.dataUrl"
                             [attr.data-title]="row.video.dataTitle"
                             [attr.data-video]="row.video.dataVideo"
                           >
-                            <a class="btn-play" href="/article">
+                            <span class="btn-play" role="button" tabindex="0" aria-label="Play video">
                               <span class="ico ico-play"></span>
                               <span class="empty">empty</span>
-                            </a>
+                            </span>
                             <a [routerLink]="row.article.titleLink" itemprop="url">
                               <img
                                 [src]="row.article.imageSrc"
@@ -115,6 +116,7 @@
                                 itemprop="thumbnailUrl"
                               />
                             </a>
+                            <div class="video-wrapper"></div>
                           </div>
                           <span>{{ row.rank }}</span>
                         </div>

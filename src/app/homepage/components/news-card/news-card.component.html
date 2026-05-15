@@ -30,13 +30,33 @@
   @case ('slider') {
     <div class="brick-article brick-medium swiper-slide" [style.width.px]="slideWidthPx">
       <div class="inner">
-        <a
-          [routerLink]="item.titleLink"
-          [title]="item.imageTitle ?? item.title"
-          class="item-image"
-          [style.background-image]="backgroundStyle()"
-          ><span class="empty">empty</span></a
-        >
+        @if (item.slideVideo) {
+          <div
+            appJaVideoList
+            class="item-image ja-video-list"
+            [attr.data-url]="item.slideVideo.dataUrl"
+            [attr.data-title]="item.slideVideo.dataTitle"
+            [attr.data-video]="item.slideVideo.dataVideo"
+            [style.background-image]="backgroundStyle()"
+          >
+            <span class="btn-play" role="button" tabindex="0" aria-label="Play video">
+              <span class="ico ico-play"></span>
+              @if (item.videoDuration) {
+                <span class="num-photos">{{ item.videoDuration }}</span>
+              }
+              <span class="empty">empty</span>
+            </span>
+            <div class="video-wrapper"></div>
+          </div>
+        } @else {
+          <a
+            [routerLink]="item.titleLink"
+            [title]="item.imageTitle ?? item.title"
+            class="item-image"
+            [style.background-image]="backgroundStyle()"
+            ><span class="empty">empty</span></a
+          >
+        }
         @if (item.categoryBgClass) {
           <span class="mod-articles-category-category" [ngClass]="item.categoryBgClass">
             <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>

@@ -24,6 +24,10 @@ export interface Article {
   categoryBgClass?: string;
   /** Anchor title attribute for image link (slider bricks). */
   imageTitle?: string;
+  /** When set, brick slider image opens inline / main-player video on play click. */
+  slideVideo?: VideoTeaserData;
+  /** Optional duration label on slider play badge (e.g. `2:38`). */
+  videoDuration?: string;
   /** Image wrapper classes on legacy exports (e.g. `pull- item-image`). */
   imageWrapperClass?: string;
   /** Adds `clearfix` on `news-big` / lead rows. */

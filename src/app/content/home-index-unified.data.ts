@@ -15,7 +15,7 @@ export const BUSINESS_GALLERY_ITEM: NewsFeatureRowInput = {
   categoryLink: '/article',
   dateLine: 'Mar 9, 2022',
   title: 'Aenean pharetra sem quis metus consectetur iaculis',
-  titleLink: '/subcategory',
+  titleLink: '/article',
   intro:
     'Aliquam dui nulla, fermentum sit amet ante et, tempor facilisis metus. Aenean aliquam ultricies tellus at elementum. Morbi quis cursus tortor, id...',
 };
@@ -35,7 +35,7 @@ export const BUSINESS_MEDIUM_BLOCKS: BusinessRowBlock[] = [
       categoryLink: '/article',
       dateLine: 'Mar 9, 2022',
       title: "10 Best Markets in Vietnam - Vietnam's Most Popular Local Markets",
-      titleLink: '/subcategory',
+      titleLink: '/article',
       intro:
         'Egestas odio eget, imperdiet neque. Suspendisse hendrerit justo quam, a pharetra eros consequat eget. Aenean nulla arcu, convallis vitae massa ac,...',
       imageWrapperClass: 'pull- item-image',
@@ -52,7 +52,7 @@ export const BUSINESS_MEDIUM_BLOCKS: BusinessRowBlock[] = [
       categoryLink: '/article',
       dateLine: 'Mar 9, 2022',
       title: 'Apple says no operations were moved from Ireland',
-      titleLink: '/subcategory',
+      titleLink: '/article',
       intro:
         'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi...',
       imageWrapperClass: 'pull-left item-image',
@@ -68,7 +68,7 @@ export const BUSINESS_MEDIUM_BLOCKS: BusinessRowBlock[] = [
       categoryLink: '/article',
       dateLine: 'Mar 9, 2022',
       title: 'Breaking Stock Market News',
-      titleLink: '/subcategory',
+      titleLink: '/article',
       intro:
         'Nullam nec leo maximus, volutpat massa in, tempor libero. Nullam id rhoncus dui, ut placerat arcu. Nunc ac pharetra dui. Duis vitae tellus...',
       imageWrapperClass: 'pull- item-image',
@@ -84,7 +84,7 @@ export const BUSINESS_MEDIUM_BLOCKS: BusinessRowBlock[] = [
       categoryLink: '/category/world',
       dateLine: 'Mar 9, 2022',
       title: 'Business News and Financial News - CNNMoney',
-      titleLink: '/subcategory',
+      titleLink: '/article',
       intro:
         'Nunc ante nisi, varius ut turpis viverra, eleifend ultrices nulla. Vestibulum at ex ac metus dictum posuere. Donec neque arcu, finibus sed lacus...',
       imageWrapperClass: 'pull- item-image',
@@ -100,7 +100,7 @@ export const BUSINESS_MEDIUM_BLOCKS: BusinessRowBlock[] = [
       categoryLink: '/article',
       dateLine: 'Mar 9, 2022',
       title: 'Business, financial and personal finance news',
-      titleLink: '/subcategory',
+      titleLink: '/article',
       intro:
         'Sed sodales, odio a viverra vehicula, quam elit rhoncus odio, venenatis eleifend odio nulla non mi. Nunc faucibus pretium condimentum.feugiat et nisl',
       imageWrapperClass: 'pull- item-image',

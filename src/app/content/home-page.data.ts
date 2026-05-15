@@ -14,7 +14,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-blue',
     categoryLink: '/category/world',
     categoryLabel: 'World',
-    titleLink: '/subcategory',
+    titleLink: '/article',
     title: 'Donald Trump Threatens to Sue The Times Over Article on Unwanted  Advances',
   },
   {
@@ -25,7 +25,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-purple',
     categoryLink: '/gallery',
     categoryLabel: 'Food',
-    titleLink: '/category/politics',
+    titleLink: '/article',
     title: 'Barack Obama Mourns Shimon Peres, and a Bygone Israel',
   },
   {
@@ -36,7 +36,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-cyan',
     categoryLink: '/category/tech',
     categoryLabel: 'Tech',
-    titleLink: '/subcategory',
+    titleLink: '/article',
     title: "Apple fires employee after daughter's video of iPhone X goes viral",
   },
   {
@@ -47,7 +47,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-green',
     categoryLink: '/category/sport',
     categoryLabel: 'Sport',
-    titleLink: '/subcategory',
+    titleLink: '/article',
     title: 'NewsNow: Sport news | Breaking News & Search 24/7',
   },
   {
@@ -58,7 +58,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-yellow',
     categoryLink: '/category/entertainment',
     categoryLabel: 'Entertaiment',
-    titleLink: '/subcategory',
+    titleLink: '/article',
     title: 'Breaking Celeb News, Entertainment News, and Celebrity Gossip',
   },
   {
@@ -69,7 +69,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-purple',
     categoryLink: '/gallery',
     categoryLabel: 'Food',
-    titleLink: '/category/politics',
+    titleLink: '/article',
     title: 'Spain on the brink: VIOLENCE erupts as police chief sacked',
   },
   {
@@ -80,7 +80,7 @@ export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
     categoryBgClass: 'bg-cat-purple',
     categoryLink: '/gallery',
     categoryLabel: 'Food',
-    titleLink: '/category/politics',
+    titleLink: '/article',
     title: "Labour MP who said Remain voters better educated 'has facts on side'",
   },
 ];
@@ -107,7 +107,7 @@ export const HOME_POLITICS_BIG: HomePoliticsBigItem = {
   categoryLink: '/article',
   dateLine: 'Mar 9, 2022',
   title: '126 million Americans may have seen Russia-linked political posts',
-  titleLink: '/subcategory',
+  titleLink: '/article',
   intro:
     'Feugiat ultrices enim tincidunt eget. Sed leo eros, faucibus at eros sollicitudin, vehicula auctor lacus. Integer tristique, nisl ac viverra...',
 };
@@ -120,7 +120,7 @@ export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
     categoryLink: '/article',
     dateLine: 'Mar 9, 2022',
     title: 'News channel debating a topic for last 48 hours to prove that the topic should be ignored',
-    titleLink: '/subcategory',
+    titleLink: '/article',
   },
   {
     imageSrc: '/images/news-11.jpg',
@@ -129,7 +129,7 @@ export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
     categoryLink: '/article',
     dateLine: 'Mar 9, 2022',
     title: 'Comment, opinion and discussion from the Guardian US',
-    titleLink: '/subcategory',
+    titleLink: '/article',
   },
   {
     imageSrc: '/images/news-20.jpeg',
@@ -138,7 +138,7 @@ export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
     categoryLink: '/article',
     dateLine: 'Mar 9, 2022',
     title: 'Russian groups made 1,100 YouTube videos during 2016 US election',
-    titleLink: '/subcategory',
+    titleLink: '/article',
   },
   {
     imageSrc: '/images/news-19.jpg',
@@ -147,7 +147,7 @@ export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
     categoryLink: '/article',
     dateLine: 'Mar 9, 2022',
     title: 'Debating China: The U.S.-China Relationship in Ten Conversations',
-    titleLink: '/subcategory',
+    titleLink: '/article',
   },
   {
     imageSrc: '/images/news-9.jpeg',
@@ -156,6 +156,6 @@ export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
     categoryLink: '/article',
     dateLine: 'Mar 9, 2022',
     title: "'Free' illegal downloads could cost you big in malware",
-    titleLink: '/subcategory',
+    titleLink: '/article',
   },
 ];
