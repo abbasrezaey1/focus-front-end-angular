@@ -1,0 +1,36 @@
+/* Host-level home layout tweaks can live here; most styling remains in global legacy CSS. */
+:host {
+  display: block;
+}
+
+/* `::ng-deep` (deprecated but still the reliable escape hatch) lets these rules reach
+   custom-element hosts rendered inside lazy-loaded child components. Legacy Bootstrap 3
+   `.row.ja-news` + floats expect `.col-*` / `.category-menu` as row participants — without
+   `display: contents` on <app-…> wrappers, Business `col-md-4` and Politics columns break. */
+:host ::ng-deep .t3-main-content .ja-news.row {
+  app-uni-news-medium,
+  app-uni-category-menu,
+  app-category-menu,
+  app-uni-news-lead,
+  app-uni-news-teaser,
+  app-news-card {
+    display: contents !important;
+  }
+}
+
+:host ::ng-deep .t3-main-content .t3-module .module-ct {
+  > app-news-section,
+  > app-home-index-business-strip {
+    display: contents !important;
+  }
+}
+
+/* First home row: breathing room below brick masthead before Politics */
+:host ::ng-deep .t3-main-content-1 .t3-main-content.col-sm-8 > .t3-module:first-child .module-title {
+  padding-top: 28px;
+}
+
+:host ::ng-deep .t3-main-content-1 .t3-sidebar .t3-module:first-child .module-ct {
+  padding-top: 28px;
+  padding-bottom: 32px;
+}

@@ -1,0 +1,139 @@
+<div class="ja-topbar clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-5 col-sm-6 topbar-left pull-left">
+        <div class="navbar-toggle-wrap clearfix pull-left">
+          <button type="button" class="navbar-toggle" title="Menu" (click)="toggleOffCanvas()">
+            <span class="fa fa-bars"></span>
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary off-canvas-toggle hidden-lg hidden-md"
+            title="open"
+            (click)="toggleOffCanvas()"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+        </div>
+
+        <div class="hidden-xs hidden-sm clearfix">
+          <ul class="nav nav-pills nav-stacked menu">
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+            <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+            <li><a routerLink="/videos" routerLinkActive="active">Videos</a></li>
+            <li><a routerLink="/gallery" routerLinkActive="active">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-xs-7 col-sm-6 topbar-right pull-right">
+        <div class="head-search">
+          <button type="button" class="btn btn-search" name="subject" aria-label="Search" (click)="submitSearch()">
+            <span class="fa fa-search"></span>
+          </button>
+          <div class="search">
+            <form class="form-inline form-search" (ngSubmit)="submitSearch()">
+              <label for="site-search" class="element-invisible">Search</label>
+              <input
+                id="site-search"
+                name="searchword"
+                class="form-control search-query"
+                type="search"
+                placeholder="Search ..."
+                [(ngModel)]="searchWord"
+                aria-label="Search"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="head-social">
+          <button type="button" class="btn btn-social" name="subject" aria-label="Share">
+            <span class="fa fa-share-alt"></span>
+          </button>
+          <div class="custom">
+            <ul class="social-list">
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  title="Instagram"
+                  class="btn instagram"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  ><span class="fa fa-instagram" aria-hidden="true"></span
+                  ><span class="follow-us-social__label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/"
+                  title="Twitter"
+                  class="btn twitter"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  ><span class="fa fa-twitter" aria-hidden="true"></span
+                  ><span class="follow-us-social__label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/"
+                  title="YouTube"
+                  class="btn youtube"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  ><span class="fa fa-youtube-play" aria-hidden="true"></span
+                  ><span class="follow-us-social__label">YouTube</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="t3-off-canvas"
+  class="t3-off-canvas hidden-lg hidden-md off-canvas-effect-4 off-canvas-left"
+  [class.off-canvas-current]="offCanvasOpen()"
+>
+  <div class="t3-off-canvas-header">
+    <h2 class="t3-off-canvas-header-title">Sidebar</h2>
+    <button type="button" class="close" aria-label="close" (click)="closeOffCanvas()">&times;</button>
+  </div>
+  <div class="t3-off-canvas-body">
+    <div class="t3-module module">
+      <div class="module-inner">
+        <h3 class="module-title"><span>Top Menu</span></h3>
+        <div class="module-ct">
+          <ul class="nav nav-pills nav-stacked menu">
+            <li><a routerLink="/" (click)="closeOffCanvas()">Home</a></li>
+            <li><a routerLink="/about" (click)="closeOffCanvas()">About</a></li>
+            <li><a routerLink="/blog" (click)="closeOffCanvas()">Blog</a></li>
+            <li><a routerLink="/contact" (click)="closeOffCanvas()">Contact</a></li>
+            <li><a routerLink="/videos" (click)="closeOffCanvas()">Videos</a></li>
+            <li><a routerLink="/gallery" (click)="closeOffCanvas()">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="t3-module module">
+      <div class="module-inner">
+        <h3 class="module-title"><span>Sections</span></h3>
+        <div class="module-ct">
+          <ul class="nav nav-pills nav-stacked menu">
+            <li><a routerLink="/category/politics" (click)="closeOffCanvas()">Politics</a></li>
+            <li><a routerLink="/category/business" (click)="closeOffCanvas()">Business</a></li>
+            <li><a routerLink="/category/world" (click)="closeOffCanvas()">World</a></li>
+            <li><a routerLink="/category/tech" (click)="closeOffCanvas()">Tech</a></li>
+            <li><a routerLink="/category/sport" (click)="closeOffCanvas()">Sport</a></li>
+            <li><a routerLink="/category/entertainment" (click)="closeOffCanvas()">Entertainment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

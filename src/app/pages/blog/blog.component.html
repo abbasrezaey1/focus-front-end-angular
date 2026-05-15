@@ -1,0 +1,30 @@
+<div id="t3-mainbody" class="container t3-mainbody">
+  <div class="row">
+    <div id="t3-content" class="t3-content col-xs-12">
+      <div class="blog">
+        <div class="items-row cols-3 row-0 row">
+          @for (post of posts; track post.title) {
+            <div class="col-sm-4">
+              <div class="item">
+                <article class="cat-purple">
+                  <div class="item-image">
+                    <a routerLink="/article"
+                      ><img [src]="post.img" [alt]="post.title"
+                    /></a>
+                  </div>
+                  <div class="article-header">
+                    <h2>
+                      <a routerLink="/article">{{ post.title }}</a>
+                    </h2>
+                  </div>
+                  <p>{{ post.teaser }}</p>
+                  <p><a routerLink="/article">Read more</a></p>
+                </article>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

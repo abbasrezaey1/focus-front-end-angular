@@ -1,0 +1,104 @@
+<div id="t3-mainbody" class="container t3-mainbody">
+  <div class="row">
+    <div id="t3-content" class="t3-content col-xs-12">
+      <div class="item-page">
+        <article class="default" itemscope itemtype="http://schema.org/Article">
+          <meta itemprop="inLanguage" content="en-GB" />
+          <div class="ja-media-content"></div>
+          <section class="article-content clearfix" itemprop="articleBody">
+            <div class="about-us">
+              <div class="main-intro">
+                <img
+                  class="img-intro img-responsive"
+                  src="/images/about-us/office.jpg"
+                  alt="Office"
+                />
+                <div class="company-desc">
+                  <h3>Welcome to <span>JA Focus</span></h3>
+                  <div class="member-block pull-right">
+                    <img src="/images/about-us/mem-3.jpg" alt="Sample image" />
+                    <h4>Brian E. Smith</h4>
+                    <span class="position">President</span>
+                  </div>
+                  <p>
+                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and
+                    demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee
+                    the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their
+                    duty through weakness of will.
+                  </p>
+                  <blockquote>
+                    <i class="fa fa-quote-left"></i>
+                    No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do
+                    not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                  </blockquote>
+                </div>
+              </div>
+
+              <div class="mems">
+                <h2><span>Top Members</span></h2>
+                <div class="row">
+                  @for (m of topMembers; track m.name) {
+                    <div class="col-sm-4">
+                      <app-member-tile
+                        [imageSrc]="m.imageSrc"
+                        [name]="m.name"
+                        [role]="m.role"
+                        [alt]="m.alt ?? ''"
+                      />
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="mems">
+                <h2><span>All Members</span></h2>
+                <div class="row">
+                  @for (m of allMembersRow1; track m.name) {
+                    <div class="col-sm-3">
+                      <app-member-tile
+                        [imageSrc]="m.imageSrc"
+                        [name]="m.name"
+                        [role]="m.role"
+                        [alt]="m.alt ?? ''"
+                      />
+                    </div>
+                  }
+                </div>
+                <div class="row">
+                  @for (m of allMembersRow2; track m.name) {
+                    <div class="col-sm-3">
+                      <app-member-tile
+                        [imageSrc]="m.imageSrc"
+                        [name]="m.name"
+                        [role]="m.role"
+                        [alt]="m.alt ?? ''"
+                      />
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="mems">
+                <h2 id="editorial-policy"><span>Editorial policy</span></h2>
+                <p>
+                  We aim for fair, accurate coverage. When we make a mistake, we correct it transparently and note
+                  substantive updates to published stories.
+                </p>
+                <h2 id="corrections-clarifications"><span>Corrections &amp; clarifications</span></h2>
+                <p>
+                  If you spot an error, please reach out through our
+                  <a routerLink="/contact">contact page</a> so the newsroom can review and respond.
+                </p>
+                <h2 id="typography"><span>Typography &amp; style</span></h2>
+                <p>
+                  Headings, lists, block quotes, and body copy on this site follow the theme styles shown on this page
+                  and in articles.
+                </p>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

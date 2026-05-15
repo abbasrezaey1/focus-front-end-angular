@@ -1,0 +1,15 @@
+<div class="latest-grid row">
+  @for (c of cells; track c.title) {
+    <div class="col-sm-3">
+      <div class="pull-left item-image" itemprop="image">
+        <a [routerLink]="c.titleLink" itemprop="url">
+          <img [src]="c.imageSrc" [alt]="c.imageAlt" itemprop="thumbnailUrl" />
+        </a>
+      </div>
+      <span class="created-date">{{ c.dateLine }}</span>
+      <a class="item-title" [routerLink]="c.titleLink" itemprop="url">
+        <span itemprop="name">{{ c.title }}</span>
+      </a>
+    </div>
+  }
+</div>

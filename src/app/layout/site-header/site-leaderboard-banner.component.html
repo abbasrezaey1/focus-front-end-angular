@@ -1,0 +1,22 @@
+<div class="site-hd-sponsor text-center">
+  <div class="container">
+    <div class="site-hd-sponsor__inner">
+      <a
+        class="site-hd-sponsor__link"
+        [routerLink]="banner.sponsorLink"
+        [title]="banner.sponsorTitle"
+      >
+        <img
+          class="site-hd-sponsor__img"
+          [src]="banner.imageSrc"
+          [width]="banner.imageWidth"
+          [height]="banner.imageHeight"
+          [alt]="banner.imageAlt"
+          loading="eager"
+          decoding="sync"
+          (error)="onImgError($event)"
+        />
+      </a>
+    </div>
+  </div>
+</div>

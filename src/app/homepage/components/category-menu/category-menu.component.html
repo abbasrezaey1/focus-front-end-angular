@@ -1,0 +1,24 @@
+<div class="category-menu">
+  <ul>
+    @for (m of items; track m.title) {
+      <li>
+        <a [routerLink]="m.link">{{ m.title }}</a>
+      </li>
+    }
+    @if (mega) {
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          {{ mega.moreLabel }}
+          <span class="fa fa-angle-down" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu">
+          @for (x of mega.items; track x.title) {
+            <li>
+              <a [routerLink]="x.link">{{ x.title }}</a>
+            </li>
+          }
+        </ul>
+      </li>
+    }
+  </ul>
+</div>

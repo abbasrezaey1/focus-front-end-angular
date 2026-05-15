@@ -1,0 +1,114 @@
+	<div class="container">
+		<div class="t3-main-content-wrap t3-main-content-1 one-sidebar-right ">
+			<div class="row equal-height">
+
+								<div class="t3-main-content t3-main-content-masttop col-xs-12">
+					<div class="t3-module module " id="Mod92"><div class="module-inner"><div class="module-ct no-title">
+<div class="brick-layout ">
+			@for (b of bricks; track b.title) {
+				<app-uni-brick-tile [item]="b" />
+			}
+</div>
+</div></div></div>
+					<div class="separator"></div>
+				</div>
+				
+								<div class="t3-main-content col col-xs-12 col-sm-8" style="min-height: 2464px;">
+					<div class="t3-module module " id="Mod93"><div class="module-inner"><h3 class="module-title "><span>Politics</span></h3><div class="module-ct "><app-news-section
+					layoutType="lead-sidebar"
+					[accentClass]="politicsAccent"
+					[menuItems]="politicsNavItems"
+					[leadArticle]="politicsBig"
+					[sidebarArticles]="politicsSidebar"
+				/>
+</div></div></div><div class="t3-module module " id="Mod100"><div class="module-inner"><h1 class="module-title "><span>Business</span></h1><div class="module-ct "><app-home-index-business-strip /></div></div></div><div class="t3-module module no-margin " id="Mod103"><div class="module-inner"><h3 class="module-title "><span>World</span></h3><div class="module-ct "><app-news-section layoutType="two-big-grid" [menuItems]="worldMenuItems" [bigArticles]="worldBigArticles" [normalArticles]="worldNormalArticles" accentClass="link-cat-blue" /></div></div></div>
+				</div>
+				
+								<div class="t3-sidebar t3-sidebar-right col col-xs-12 col-sm-4  hidden-xs" style="min-height: 2464px;">
+					<div class="t3-module module " id="Mod111"><div class="module-inner"><h3 class="module-title "><span>Follow Us on Social</span></h3><div class="module-ct "><app-social-links [items]="socialLinks" /></div></div></div>
+					<div class="t3-module module " id="Mod112"><div class="module-inner"><h3 class="module-title "><span>Editor of the week</span></h3><div class="module-ct "><app-sidebar-news-widget
+						accentClass="link-cat-purple"
+						[leadArticle]="editorLeadArticle"
+						[articles]="editorArticles"
+					/></div></div></div><div class="t3-module module " id="Mod113"><div class="module-inner"><h3 class="module-title "><span>Custom Stock Widget</span></h3><div class="module-ct ">
+
+<div class="custom">
+	<app-uni-stock-widget />
+</div>
+</div></div></div><div class="t3-module module mod-nopadding mod-noborder " id="Mod97"><div class="module-inner"><div class="module-ct no-title"><app-ad-banner [config]="sidebarAd"></app-ad-banner></div></div></div>
+				</div>
+				
+								<div class="t3-main-content t3-main-content-mastbot col-xs-12">
+					<div class="separator"></div>
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+    
+	<div class="container">
+		<div class="t3-main-content-wrap t3-main-content-2 one-sidebar-right ">
+			<div class="row equal-height">
+
+								<div class="t3-main-content t3-main-content-masttop col-xs-12">
+					<div class="t3-module module " id="Mod99"><div class="module-inner"><h3 class="module-title "><span>Tech</span></h3><div class="module-ct ">
+<app-news-slider
+						[items]="techSliderArticles"
+						[menuItems]="techMenuItems"
+						[mega]="techMegaMenu"
+					/></div></div></div>
+					<div class="separator"></div>
+				</div>
+				
+								<div class="t3-main-content col col-xs-12 col-sm-8" style="min-height: 1456px;">
+					<div class="t3-module module " id="Mod104"><div class="module-inner"><h3 class="module-title "><span>Sport</span></h3><div class="module-ct "><app-news-section
+						layoutType="lead-sidebar-grid"
+						accentClass="link-cat-green"
+						[menuItems]="sportMenuItems"
+						[leadArticle]="sportLeadArticle"
+						[sidebarArticles]="sportSidebarArticles"
+					/></div></div></div><div class="t3-module module " id="Mod102"><div class="module-inner"><h3 class="module-title "><span>Entertaiment</span></h3><div class="module-ct "><app-news-section
+						layoutType="wide-lead-three-medium"
+						accentClass="link-cat-yellow"
+						[menuItems]="entertainmentMenuItems"
+						[leadArticle]="entertainmentLeadArticle"
+						[sidebarArticles]="entertainmentSidebarArticles"
+					/></div></div></div>
+				</div>
+				
+								<div class="t3-sidebar t3-sidebar-right col col-xs-12 col-sm-4 " style="min-height: 1456px;">
+					<div class="t3-module module mod-nopadding mod-noborder " id="Mod101"><div class="module-inner"><div class="module-ct no-title"><app-ad-banner [config]="sidebarAd" /></div></div></div><div class="t3-module module " id="Mod117"><div class="module-inner"><h3 class="module-title "><span>Most Read</span></h3><div class="module-ct "><app-most-read-tabs [tabs]="mostReadTabs" /></div></div></div><div class="t3-module module mod-nopadding mod-noborder " id="Mod116"><div class="module-inner"><h3 class="module-title "><span>Slider Widget</span></h3><div class="module-ct ">
+<app-news-slider [items]="sidebarSliderArticles" [compact]="true" /></div></div></div>
+				</div>
+				
+								<div class="t3-main-content t3-main-content-mastbot col-xs-12">
+					<div class="separator"></div>
+					<div class="t3-module module " id="Mod114"><div class="module-inner"><h3 class="module-title "><span>Most Watched Videos</span></h3><div class="module-ct ">
+<app-video-list [featuredVideo]="featuredPlayerVideo" [videos]="videoSidebarList" /></div></div></div>
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+    
+	<div class="container">
+		<div class="t3-main-content-wrap t3-main-content-3 one-sidebar-right ">
+			<div class="row equal-height">
+
+				
+								<div class="t3-main-content col col-xs-12 col-sm-8" style="min-height: 1321px;">
+					<div class="t3-module module mod-noborder " id="Mod105"><div class="module-inner"><div class="module-ct no-title"><app-category-columns [columns]="categoryColumns" /></div></div></div>
+				</div>
+				
+								<div class="t3-sidebar t3-sidebar-right col col-xs-12 col-sm-4 " style="min-height: 1321px;">
+					<div class="t3-module module mod-nopadding mod-noborder " id="Mod106"><div class="module-inner"><div class="module-ct no-title"><app-ad-banner [config]="sidebarAd" /></div></div></div>
+				</div>
+				
+								<div class="t3-main-content t3-main-content-mastbot col-xs-12">
+					<div class="separator"></div>
+				</div>
+							</div>
+		</div>
+	</div>

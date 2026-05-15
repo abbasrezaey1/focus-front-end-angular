@@ -1,0 +1,23 @@
+<div class="news-medium col-md-4 clearfix" [class.clear]="firstInRow" [ngClass]="accentClass">
+  <div [class]="item.imageWrapperClass ?? imageWrapperClass" itemprop="image">
+    <a [routerLink]="item.titleLink" itemprop="url">
+      <img [src]="item.imageSrc" [alt]="item.imageAlt" itemprop="thumbnailUrl" />
+    </a>
+  </div>
+  <div class="article-content">
+    <aside class="article-aside aside-before-title">
+      <dl class="article-info muted">
+        <dd class="mod-articles-category-category">
+          <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>
+        </dd>
+        <dd class="mod-articles-category-date">{{ item.dateLine }}</dd>
+      </dl>
+    </aside>
+    <h4 class="mod-articles-category-title">
+      <a [routerLink]="item.titleLink">{{ item.title }}</a>
+    </h4>
+    @if (item.intro) {
+      <p class="mod-articles-category-introtext">{{ item.intro }}</p>
+    }
+  </div>
+</div>

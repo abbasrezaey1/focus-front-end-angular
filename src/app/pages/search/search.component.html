@@ -1,0 +1,109 @@
+<div id="t3-mainbody" class="container t3-mainbody">
+  <div class="row">
+    <div id="t3-content" class="t3-content col-xs-12">
+      <div class="tag-category">
+        <div class="item-page search-page search-form-classic">
+          <article class="default">
+            <section class="article-content clearfix">
+              <h1>Search</h1>
+
+              <form id="search-results-form" class="search-form-classic" (ngSubmit)="submitSearch()">
+                <fieldset class="filters">
+                  <legend class="element-invisible">Search</legend>
+
+                  <div class="form-group search-keyword-wrap">
+                    <label for="filter-search" class="control-label">Search Keyword:</label>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="searchword"
+                        id="filter-search"
+                        class="form-control"
+                        placeholder="Search Keyword:"
+                        autocomplete="off"
+                        [(ngModel)]="searchDraft"
+                      />
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary" title="Search">
+                          <span class="fa fa-search" aria-hidden="true"></span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="search-section-title">Search for:</div>
+                  <div class="form-group">
+                    <label class="radio-inline"
+                      ><input type="radio" name="searchphrase" value="all" checked="checked" /> All words</label>
+                    <label class="radio-inline"><input type="radio" name="searchphrase" value="any" /> Any words</label>
+                    <label class="radio-inline"><input type="radio" name="searchphrase" value="exact" /> Exact Phrase</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label" for="ordering">Ordering:</label>
+                    <select name="ordering" id="ordering" class="form-control ordering-select">
+                      <option value="newest" selected="selected">Newest First</option>
+                      <option value="oldest">Oldest First</option>
+                      <option value="popular">Most Popular</option>
+                      <option value="alpha">Alphabetical</option>
+                      <option value="category">Category</option>
+                    </select>
+                  </div>
+
+                  <div class="search-section-title">Search only:</div>
+                  <div class="form-group">
+                    <label class="checkbox-inline"><input type="checkbox" name="areas" value="categories" /> Categories</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="areas" value="contacts" /> Contacts</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="areas" value="content" checked="checked" /> Articles</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="areas" value="feeds" /> News Feeds</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="areas" value="tags" /> Tags</label>
+                  </div>
+                </fieldset>
+
+                @if (query()) {
+                  <p class="text-muted">
+                    Showing sample results for <strong>{{ query() }}</strong> (static demo — connect to your search backend).
+                  </p>
+                } @else {
+                  <p class="text-muted">Submit a keyword to echo the query above; sample results below mirror the static export.</p>
+                }
+
+                <ul class="category list-striped list-unstyled">
+                  @for (hit of demoHits; track hit.title; let i = $index) {
+                    <li class="clearfix" [class.cat-list-row0]="i % 2 === 0" [class.cat-list-row1]="i % 2 === 1">
+                      <div class="tag-img">
+                        <a routerLink="/article"
+                          ><img [src]="hit.image" [alt]="hit.title"
+                        /></a>
+                      </div>
+                      <div class="tag-body">
+                        <h3>
+                          <a routerLink="/article">{{ hit.title }}</a>
+                        </h3>
+                        <p>{{ hit.snippet }}</p>
+                      </div>
+                    </li>
+                  }
+                </ul>
+
+                <div class="pagination-wrap">
+                  <p class="counter">Page 1 of 4</p>
+                  <ul class="pagination">
+                    <li class="disabled"><a>Start</a></li>
+                    <li class="disabled"><a>Prev</a></li>
+                    <li class="active"><a routerLink="/search">1</a></li>
+                    <li><a routerLink="/search" [queryParams]="{ q: query() || 'news', page: 2 }" title="2">2</a></li>
+                    <li><a routerLink="/search" [queryParams]="{ q: query() || 'news', page: 3 }" title="3">3</a></li>
+                    <li><a routerLink="/search" [queryParams]="{ q: query() || 'news', page: 4 }" title="4">4</a></li>
+                    <li><a routerLink="/search" [queryParams]="{ q: query() || 'news', page: 2 }" title="Next">Next</a></li>
+                    <li><a routerLink="/search" [queryParams]="{ q: query() || 'news', page: 4 }" title="End">End</a></li>
+                  </ul>
+                </div>
+              </form>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

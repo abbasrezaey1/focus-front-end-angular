@@ -1,0 +1,20 @@
+<div class="t3-wrapper">
+  <div class="container-hd">
+    <app-site-header />
+    <router-outlet />
+  </div>
+
+  <div
+    id="back-to-top"
+    class="back-to-top hidden-xs hidden-sm"
+    [class.affix]="backTopVisible()"
+    [class.affix-top]="!backTopVisible()"
+    [style.display]="backTopVisible() ? 'block' : 'none'"
+  >
+    <button type="button" class="btn btn-primary" title="Back to Top" (click)="scrollTop()">
+      <span class="fa fa-long-arrow-up" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <app-site-footer />
+</div>

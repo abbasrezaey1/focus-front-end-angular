@@ -1,0 +1,66 @@
+<div class="t3-module module" id="Mod146">
+  <div class="module-inner">
+    <h3 class="module-title"><span>Most Read</span></h3>
+    <div class="module-ct">
+      <div class="custom">
+        <div class="ja-tabswrap default" style="width: 100%">
+          <div class="container">
+            <div class="ja-tabs-title-top" style="height: 30px">
+              <ul class="ja-tabs-title">
+                <li title="Week" class="first active">
+                  <h3><span>Week</span></h3>
+                </li>
+                <li title="Month" class="">
+                  <h3><span>Month</span></h3>
+                </li>
+                <li title="All" class="last">
+                  <h3><span>All</span></h3>
+                </li>
+              </ul>
+            </div>
+            <div class="ja-tab-panels-top">
+              <div class="ja-tab-content">
+                <div class="ja-tab-subcontent">
+                  <div class="ja-news ja-news-9">
+                    @for (row of rows; track row.headline) {
+                      <div class="news-normal clearfix" [ngClass]="row.linkClass">
+                        <div class="intro-image-wrap">
+                          <div [class]="row.imageWrapperClass" itemprop="image">
+                            @if (row.linkKind === 'subcategory') {
+                              <a routerLink="/subcategory" itemprop="url">
+                                <img [src]="row.imageSrc" [alt]="row.imageAlt" itemprop="thumbnailUrl" />
+                              </a>
+                            } @else {
+                              <a routerLink="/article" itemprop="url">
+                                <img [src]="row.imageSrc" [alt]="row.imageAlt" itemprop="thumbnailUrl" />
+                              </a>
+                            }
+                          </div>
+                          <span>{{ row.rank }}</span>
+                        </div>
+                        <div class="article-content">
+                          <aside class="article-aside aside-before-title">
+                            <dl class="article-info muted">
+                              <dd class="mod-articles-category-date">{{ row.dateLine }}</dd>
+                            </dl>
+                          </aside>
+                          <h4 class="mod-articles-category-title">
+                            @if (row.linkKind === 'subcategory') {
+                              <a routerLink="/subcategory">{{ row.headline }}</a>
+                            } @else {
+                              <a routerLink="/article">{{ row.headline }}</a>
+                            }
+                          </h4>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

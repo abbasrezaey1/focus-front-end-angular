@@ -1,0 +1,54 @@
+<div class="video-list">
+  <div class="row">
+    <div class="player-wrap col-md-8" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+      <div id="ja-main-player" class="embed-responsive embed-responsive-16by9" itemprop="video">
+        <div id="videoplayer">
+          <span class="video-mask"></span>
+          <img
+            class="ja-video embed-responsive-item"
+            width="640"
+            height="360"
+            [src]="featuredVideo.posterSrc"
+            [alt]="featuredVideo.posterAlt"
+          />
+          <a title="Play" id="ja-btn-play">
+            <span class="fa fa-play"></span>
+            <h3>{{ featuredVideo.headline }}</h3>
+          </a>
+          <noscript> YOU MUST ENABLED JS </noscript>
+        </div>
+      </div>
+      <noscript> YOU MUST ENABLED JS </noscript>
+    </div>
+    <div class="videos-featured-list col-md-4">
+      <ul>
+        @for (v of videos; track v.dataUrl) {
+          <li>
+            <div class="item-thumb-wrap">
+              <div
+                class="item-image ja-video-list"
+                [attr.data-url]="v.dataUrl"
+                [attr.data-title]="v.dataTitle"
+                [attr.data-video]="v.dataVideo"
+              >
+                <span class="btn-play">
+                  <span class="ico ico-play"></span>
+                </span>
+                <a [routerLink]="v.titleLink" itemprop="url">
+                  <img [src]="v.imageSrc" [alt]="v.imageAlt" itemprop="thumbnailUrl" />
+                </a>
+                <div class="video-wrapper"></div>
+              </div>
+            </div>
+            <h2 class="article-title">
+              <a class="mod-articles-category-title" [routerLink]="v.titleLink">{{ v.title }}</a>
+            </h2>
+            @if (v.dateLine) {
+              <span class="mod-articles-category-date">{{ v.dateLine }}</span>
+            }
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,220 @@
+.ja-stock-local {
+  font-family:
+    'Heebo',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  color: #131722;
+  background: #fff;
+  border: 1px solid #e0e3eb;
+  box-sizing: border-box;
+  max-height: 242px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ja-stock-local *,
+.ja-stock-local *::before,
+.ja-stock-local *::after {
+  box-sizing: border-box;
+}
+
+.ja-stock-local .ja-stock-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 8px 8px;
+  border-bottom: 1px solid #e0e3eb;
+  background: #fff;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.ja-stock-local .ja-stock-tabs span {
+  color: #787b86;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 4px;
+  cursor: default;
+  line-height: 1;
+}
+
+.ja-stock-local .ja-stock-tabs span.is-active {
+  color: #131722;
+  font-weight: 600;
+  background: #e8e9ed;
+}
+
+.ja-stock-local .ja-stock-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 168px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ja-stock-local .ja-stock-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ja-stock-local .ja-stock-scroll::-webkit-scrollbar-thumb {
+  background: #b5b8c1;
+  border-radius: 3px;
+}
+
+.ja-stock-local .ja-stock-row {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  column-gap: 10px;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid #f0f3fa;
+  min-height: 44px;
+}
+
+.ja-stock-local .ja-stock-row:last-child {
+  border-bottom: 0;
+}
+
+.ja-stock-local .ja-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #787b86;
+  background: #e8e9ed;
+  line-height: 1;
+}
+
+.ja-stock-local .ja-ico.ja-ico-empty {
+  background: #ececed;
+  color: #b5b8c1;
+  font-weight: 400;
+}
+
+.ja-stock-local .ja-ico.ja-ico-nky {
+  background: #1e3a8a;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ja-stock-local .ja-ico.ja-ico-aapl {
+  background: #111;
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ja-stock-local .ja-ico.ja-ico-aapl svg {
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: auto;
+}
+
+.ja-stock-local .ja-ico.ja-ico-goog {
+  background: #fff;
+  border: 1px solid #e0e3eb;
+  color: #4285f4;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ja-stock-local .ja-mid {
+  min-width: 0;
+}
+
+.ja-stock-local .ja-tick {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 5px;
+  line-height: 1.2;
+}
+
+.ja-stock-local a.sym {
+  color: #131722;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ja-stock-local a.sym:hover {
+  color: #2962ff;
+}
+
+.ja-stock-local .ja-warn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f23645;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  margin-left: 1px;
+}
+
+.ja-stock-local .ja-stock-desc {
+  color: #787b86;
+  font-size: 11px;
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+.ja-stock-local .ja-stock-price {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ja-stock-local .ja-stock-price .p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #131722;
+  display: block;
+  line-height: 1.15;
+}
+
+.ja-stock-local .ja-stock-price .ch {
+  font-size: 12px;
+  font-weight: 500;
+  color: #089981;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.ja-stock-local .ja-stock-price .ch.neg {
+  color: #f23645;
+}
+
+.ja-stock-local .ja-stock-foot {
+  flex-shrink: 0;
+  padding: 4px 8px 5px;
+  border-top: 1px solid #e0e3eb;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 22px;
+}
+
+.ja-stock-local .ja-stock-foot small {
+  color: #b2b5be;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}

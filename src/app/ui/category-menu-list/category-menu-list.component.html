@@ -1,0 +1,9 @@
+<div class="category-menu">
+  <ul>
+    @for (m of items; track m.title) {
+      <li>
+        <a [routerLink]="m.link">{{ m.title }}</a>
+      </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,59 @@
+@switch (layoutType) {
+  @case ('lead-sidebar') {
+    <div class="row ja-news ja-news-1">
+      <app-category-menu [items]="menuItems" />
+      @if (leadArticle) {
+        <app-news-card variant="big" [item]="leadArticle" [accentClass]="accentClass" />
+      }
+      <div class="news-sidebar col-md-6">
+        @for (row of sidebarArticles; track row.title) {
+          <app-news-card variant="normal" [item]="row" [accentClass]="accentClass" />
+        }
+      </div>
+    </div>
+  }
+  @case ('two-big-grid') {
+    <div class="row ja-news ja-news-3 no-margin">
+      <app-category-menu [items]="menuItems" />
+      @for (b of bigArticles; track b.title) {
+        <app-news-card variant="big" [item]="b" [accentClass]="accentClass" />
+      }
+      @for (n of normalArticles; track n.title) {
+        <app-news-card variant="normal" [item]="n" [accentClass]="accentClass" [colMd6]="true" />
+      }
+    </div>
+  }
+  @case ('lead-sidebar-grid') {
+    <div class="row ja-news ja-news-4">
+      <app-category-menu [items]="menuItems" />
+      @if (leadArticle) {
+        <app-news-card variant="big" [item]="leadArticle" [accentClass]="accentClass" />
+      }
+      <div class="news-sidebar col-md-6">
+        <div class="row">
+          @for (row of sidebarArticles; track row.title) {
+            <app-news-card variant="normal" [item]="row" [accentClass]="accentClass" [colMd6]="true" />
+          }
+        </div>
+      </div>
+    </div>
+  }
+  @case ('wide-lead-three-medium') {
+    <div class="row ja-news ja-news-5">
+      <app-category-menu [items]="menuItems" />
+      @if (leadArticle) {
+        <app-news-card variant="big" [item]="leadArticle" [accentClass]="accentClass" />
+      }
+      <div class="news-sidebar">
+        @for (m of sidebarArticles; track m.title; let i = $index) {
+          <app-news-card
+            variant="medium"
+            [item]="m"
+            [accentClass]="accentClass"
+            [firstInRow]="i === 0"
+          />
+        }
+      </div>
+    </div>
+  }
+}

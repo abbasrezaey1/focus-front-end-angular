@@ -1,0 +1,19 @@
+<div class="custom">
+  <ul class="follow-us-social">
+    @for (s of items; track s.href) {
+      <li>
+        <a
+          [href]="s.href"
+          [title]="s.title"
+          [class]="s.btnClass"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span [class]="s.iconClass" aria-hidden="true"></span>
+          <span class="follow-us-social__label">{{ s.label }}</span>
+          <span class="empty">empty</span>
+        </a>
+      </li>
+    }
+  </ul>
+</div>

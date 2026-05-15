@@ -1,0 +1,14 @@
+<div class="bannergroup mod-nopadding mod-noborder">
+  <div class="banneritem">
+    @if (ad.externalHref) {
+      <a [href]="ad.externalHref" target="_blank" rel="noopener noreferrer" [title]="ad.title ?? ad.imageAlt">
+        <img [src]="ad.imageSrc" [width]="ad.width" [height]="ad.height" [alt]="ad.imageAlt" />
+      </a>
+    } @else {
+      <a [routerLink]="ad.routerLink ?? '/'" [title]="ad.title ?? ad.imageAlt">
+        <img [src]="ad.imageSrc" [width]="ad.width" [height]="ad.height" [alt]="ad.imageAlt" />
+      </a>
+    }
+    <div class="clr"></div>
+  </div>
+</div>

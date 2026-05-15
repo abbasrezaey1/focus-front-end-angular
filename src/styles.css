@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global theme: ported static site (see src/styles/legacy/). Order matters. */
+@import url("./styles/legacy/bootstrap.css");
+@import url("./styles/legacy/legacy-grid.css");
+@import url("./styles/legacy/template.css");
+@import url("./styles/legacy/megamenu.css");
+@import url("./styles/legacy/off-canvas.css");
+@import url("./styles/legacy/swiper.css");
+@import url("./styles/legacy/fonts-local.css");
+@import url("./styles/legacy/icon.css");
+@import url("./styles/legacy/module.min.css");
+@import url("./styles/legacy/docs.css");
+@import url("./styles/legacy/jabuilder.css");
+@import url("./styles/legacy/modal.css");
+@import url("./styles/legacy/ja.tabs.css");
+@import url("./styles/app-overrides.css");

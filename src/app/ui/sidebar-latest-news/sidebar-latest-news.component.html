@@ -1,0 +1,39 @@
+<div class="t3-module module" id="Mod95">
+  <div class="module-inner">
+    <h3 class="module-title"><span>Latest News</span></h3>
+    <div class="module-ct">
+      <ul class="latestnews">
+        @for (it of items; track it.title) {
+          <li class="clearfix">
+            @if (it.galleryStyle && it.imageSrc) {
+              <div class="item-image ja-gallery-list">
+                <span class="btn-play">
+                  <span class="ico ico-image"></span>
+                  <span class="num-photos"> 4 Photos</span>
+                </span>
+                <a routerLink="/article" itemprop="url">
+                  <img [src]="it.imageSrc" [alt]="it.imageAlt ?? ''" itemprop="thumbnailUrl" />
+                </a>
+              </div>
+              <span style="display: none" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                <img src="/images/logo.png" alt="" itemprop="image" />
+                <meta itemprop="height" content="auto" />
+                <meta itemprop="width" content="auto" />
+                <meta itemprop="url" content="/images/logo.png" />
+              </span>
+            } @else if (it.imageSrc) {
+              <div class="pull- item-image" itemprop="image">
+                <a routerLink="/article" itemprop="url">
+                  <img [src]="it.imageSrc" [alt]="it.imageAlt ?? ''" itemprop="thumbnailUrl" />
+                </a>
+              </div>
+            }
+            <a class="item-title" routerLink="/article" itemprop="url">
+              <span itemprop="name">{{ it.title }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

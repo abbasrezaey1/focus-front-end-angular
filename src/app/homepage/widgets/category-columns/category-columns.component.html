@@ -1,0 +1,13 @@
+<div class="ja-news row equal-height ja-news-6 mod-noborder">
+  @for (col of columns; track col.title) {
+    <div class="col-sm-4 col" [style.min-height.px]="col.minHeightPx ?? null">
+      <div class="module-title">{{ col.title }}</div>
+      <div class="news-normal-group" [ngClass]="col.accentGroupClass">
+        <app-news-card variant="big" [item]="leadForColumn(col)" accentClass="" />
+        @for (a of col.items; track a.title) {
+          <app-news-card variant="normal" [item]="withTeaserDefaults(a)" accentClass="" />
+        }
+      </div>
+    </div>
+  }
+</div>

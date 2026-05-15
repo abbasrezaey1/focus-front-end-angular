@@ -1,0 +1,248 @@
+/* Angular-owned tweaks on top of ported legacy theme */
+
+/* -------------------------------------------------------------------------- */
+/* Angular wraps the HD chrome in <app-site-header>; legacy CSS used          */
+/* Legacy used `.container-hd > .ja-banner` / `> .ja-topbar`; Angular nests banner in `<app-site-header>`. Mirror      */
+/* those rules through the host so the top gray bar + topbar borders match    */
+/* the static HTML export.                                                     */
+/* -------------------------------------------------------------------------- */
+.container-hd app-site-header {
+  display: block;
+}
+
+/* Top sponsor strip: neutral class names (not `ja-banner` / `banneritem`) so ad blockers
+   are less likely to hide the image; styles mirror legacy `.container-hd .ja-banner.banner-top`. */
+.container-hd app-site-header .site-hd-sponsor {
+  position: relative;
+  z-index: 200;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  overflow: visible;
+  background: #f6f6f6;
+  min-height: 0;
+}
+
+.container-hd app-site-header .site-hd-sponsor__inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+  .container-hd app-site-header .site-hd-sponsor__inner {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-hd app-site-header .ja-topbar > .container {
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .container-hd app-site-header .ja-topbar > .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .container-hd app-site-header .ja-topbar .topbar-right[class*='col-'] {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-hd app-site-header .ja-topbar > .container {
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.container-hd .site-hd-sponsor__link {
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+}
+
+.container-hd .site-hd-sponsor__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+/* Politics / Sport sidebars: `display: contents` on <app-news-card> can drop adjacent-sibling
+   margins from legacy `.news-normal + .news-normal`; use flex gap as a reliable fallback. */
+.ja-news .news-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 767px) {
+  .ja-news .news-sidebar {
+    gap: 23px;
+  }
+}
+
+.ja-news .news-sidebar .news-normal + .news-normal {
+  margin-top: 0;
+}
+
+/* Sidebar “Follow Us”: slightly more space between stacked brand buttons */
+.t3-sidebar .follow-us-social > li {
+  margin-bottom: 12px;
+}
+
+.t3-sidebar .follow-us-social > li:last-child {
+  margin-bottom: 0;
+}
+
+.t3-sidebar #Mod111 .module-ct {
+  padding-top: 28px;
+  padding-bottom: 32px;
+}
+
+/* Sidebar “Follow Us”: solid Instagram bar (gradient read as a harsh orange band) */
+.t3-sidebar .follow-us-social .btn.instagram {
+  background: #833ab4;
+}
+.t3-sidebar .follow-us-social .btn.instagram:hover,
+.t3-sidebar .follow-us-social .btn.instagram:focus {
+  filter: none;
+  background: #6b2d9a;
+  color: #fff !important;
+}
+
+@media (min-width: 992px) {
+  .t3-megamenu .nav > li.dropdown:hover > .dropdown-menu.mega-dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 500;
+  }
+
+  #t3-mainnav.t3-mainnav {
+    position: relative;
+    z-index: 300;
+  }
+}
+
+/* “Browse All Sections”: legacy floats + implicit row stretch made short columns (e.g. Tech)
+   grow to the height of the tallest cell in that row, leaving dead space above the second
+   row of categories. Grid + align-items: start keeps each cell content-height only. */
+@media (min-width: 768px) {
+  .t3-megamenu .mega-dropdown-menu .categories-module.show-all {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .t3-megamenu .mega-dropdown-menu .categories-module.show-all > li {
+    float: none !important;
+    width: auto !important;
+    max-width: none;
+  }
+}
+
+/* Hide legacy Joomla empty placeholders rendered as text in some exports */
+.empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Contact "Links": template.css sets every `.fa:before` in this block to a generic glyph (\f129),
+   which breaks real Font Awesome icons; restore FA4 codepoints per network. */
+.contact .contact-links ul.nav-stacked > li {
+  border: 0;
+  float: none;
+}
+.contact .contact-links ul.nav-stacked > li > a {
+  border: 0;
+  border-radius: 0;
+}
+.contact .contact-links ul li a span.fa.fa-facebook:before {
+  content: '\f09a';
+}
+.contact .contact-links ul li a span.fa.fa-google-plus:before {
+  content: '\f0d5';
+}
+.contact .contact-links ul li a span.fa.fa-twitter:before {
+  content: '\f099';
+}
+.contact .contact-links ul li a span.fa.fa-youtube:before {
+  content: '\f167';
+}
+.contact .contact-links ul li a span.fa.fa-vimeo:before {
+  content: '\f27d';
+}
+
+/* Search results page (parity with repo-root search.html) */
+.search-page.search-form-classic .filters {
+  margin: 0 0 24px 0;
+  padding: 0 0 24px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+.search-page.search-form-classic .search-section-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 18px 0 10px 0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: #222;
+}
+.search-page.search-form-classic .search-section-title:first-of-type {
+  margin-top: 0;
+}
+.search-page.search-form-classic .search-keyword-wrap .control-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+.search-page.search-form-classic .search-keyword-wrap .input-group .form-control {
+  height: 40px;
+  border-radius: 0;
+}
+.search-page.search-form-classic .search-keyword-wrap .input-group-btn > .btn {
+  height: 40px;
+  border-radius: 0;
+  min-width: 44px;
+}
+.search-page.search-form-classic .ordering-select {
+  max-width: 320px;
+}
+.search-page.search-form-classic .radio-inline,
+.search-page.search-form-classic .checkbox-inline {
+  margin-right: 16px;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+.search-page .category.list-striped .tag-img {
+  float: left;
+  margin-right: 16px;
+  max-width: 120px;
+}
+.search-page .category.list-striped .tag-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.search-page .category.list-striped .tag-body h3 {
+  margin-top: 0;
+}

@@ -1,0 +1,28 @@
+<div class="btn-group pull-right">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" (click)="$event.preventDefault()">
+    <span class="fa fa-cog"></span>
+    <span class="caret"><span class="element-invisible">Empty</span></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="print-icon">
+      <a [routerLink]="printLink" title="Print" rel="nofollow"
+        ><span class="fa fa-print"></span>&nbsp;Print&nbsp;</a
+      >
+    </li>
+    @if (showEmail) {
+      <li class="email-icon">
+        <a href="#" title="Email" (click)="$event.preventDefault()"
+          ><span class="fa fa-envelope"></span> Email</a
+        >
+      </li>
+    }
+    @if (showEditDelete) {
+      <li class="edit-icon">
+        <a href="#" title="Edit" (click)="$event.preventDefault()">Edit</a>
+      </li>
+      <li class="delete-icon">
+        <a href="#" title="Delete" (click)="$event.preventDefault()">Delete</a>
+      </li>
+    }
+  </ul>
+</div>

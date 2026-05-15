@@ -1,0 +1,46 @@
+<div class="ja-news ja-news-7">
+  <app-news-card
+    variant="big"
+    [item]="leadArticle"
+    [accentClass]="accentClass"
+  />
+  <div class="news-sidebar">
+    @for (e of articles; track $index) {
+      @switch (e.kind) {
+        @case ('article') {
+          <app-news-card variant="normal" [item]="e.item" [accentClass]="accentClass" />
+        }
+        @case ('video') {
+          <div class="news-normal clearfix" [ngClass]="accentClass">
+            <div
+              class="item-image ja-video-list"
+              [attr.data-url]="e.video.dataUrl"
+              [attr.data-title]="e.video.dataTitle"
+              [attr.data-video]="e.video.dataVideo"
+            >
+              <a class="btn-play" href="/article">
+                <span class="ico ico-play"></span>
+                <span class="empty">empty</span>
+              </a>
+              <a [routerLink]="e.item.titleLink" itemprop="url">
+                <img [src]="e.item.imageSrc" [alt]="e.item.imageAlt" itemprop="thumbnailUrl" />
+              </a>
+            </div>
+            <div class="article-content">
+              <aside class="article-aside aside-before-title">
+                <dl class="article-info muted">
+                  @if (e.item.dateLine) {
+                    <dd class="mod-articles-category-date">{{ e.item.dateLine }}</dd>
+                  }
+                </dl>
+              </aside>
+              <h4 class="mod-articles-category-title">
+                <a [routerLink]="e.item.titleLink">{{ e.item.title }}</a>
+              </h4>
+            </div>
+          </div>
+        }
+      }
+    }
+  </div>
+</div>

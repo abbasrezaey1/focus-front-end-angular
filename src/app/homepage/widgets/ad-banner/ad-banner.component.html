@@ -1,0 +1,19 @@
+<div class="bannergroup mod-nopadding mod-noborder">
+  <div class="banneritem">
+    @if (config.externalHref) {
+      <a
+        [href]="config.externalHref"
+        target="_blank"
+        rel="noopener noreferrer"
+        [title]="config.title ?? config.imageAlt"
+      >
+        <img [src]="config.imageSrc" [width]="config.width" [height]="config.height" [alt]="config.imageAlt" />
+      </a>
+    } @else {
+      <a [routerLink]="config.routerLink ?? '/'" [title]="config.title ?? config.imageAlt">
+        <img [src]="config.imageSrc" [width]="config.width" [height]="config.height" [alt]="config.imageAlt" />
+      </a>
+    }
+    <div class="clr"></div>
+  </div>
+</div>

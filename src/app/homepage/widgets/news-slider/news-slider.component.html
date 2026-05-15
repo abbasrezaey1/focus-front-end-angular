@@ -1,0 +1,51 @@
+@if (compact) {
+  <div id="ja-new-116" class="ja-news-8 brick-layout mod-nopadding mod-noborder">
+    <div class="swiper-container swiper-container-horizontal swiper-container-android">
+      <div class="swiper-wrapper">
+        @for (item of sliderArticles(); track item.title) {
+          <app-news-card
+            variant="slider"
+            [item]="item"
+            [accentClass]="''"
+            [slideWidthPx]="resolvedSlideWidth()"
+          />
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button">
+        <div class="swiper-button-next swiper-button-dark">
+          <span class="fa fa-angle-right"></span>
+        </div>
+        <div class="swiper-button-prev swiper-button-dark swiper-button-disabled">
+          <span class="fa fa-angle-left"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <noscript> YOU MUST ENABLED JS</noscript>
+} @else {
+  <div class="brick-layout swiper">
+    @if (menuItems.length || mega) {
+      <app-category-menu [items]="menuItems" [mega]="mega" />
+    }
+    <div class="swiper-container swiper-container-horizontal swiper-container-android">
+      <div class="swiper-wrapper">
+        @for (item of sliderArticles(); track item.title) {
+          <app-news-card
+            variant="slider"
+            [item]="item"
+            [accentClass]="''"
+            [slideWidthPx]="resolvedSlideWidth()"
+          />
+        }
+      </div>
+      <div class="swiper-button-next swiper-button-dark">
+        <i class="fa fa-angle-right"></i>
+      </div>
+      <div class="swiper-button-prev swiper-button-dark swiper-button-disabled">
+        <i class="fa fa-angle-left"></i>
+      </div>
+    </div>
+  </div>
+  <noscript> YOU MUST ENABLED JS</noscript>
+}

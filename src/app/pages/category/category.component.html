@@ -1,0 +1,59 @@
+<div id="t3-mainbody" class="container t3-mainbody one-sidebar-right">
+  <div class="row equal-height">
+    <div id="t3-content" class="t3-content col col-xs-12 col-sm-8">
+      <div class="blog" itemscope itemtype="https://schema.org/Blog">
+        <div class="page-header clearfix">
+          <h1 class="page-title" [class]="view().chrome.pageTitleClass">
+            {{ view().chrome.pageTitle }}
+            <span class="fa fa-circle"></span>
+          </h1>
+        </div>
+
+        <div class="category-desc clearfix">
+          <dl class="fields-container">
+            <dd class="field-entry colors color-field">
+              <span class="field-label">{{ view().chrome.fieldLabel }} </span>
+              <span class="field-value">{{ view().chrome.fieldValue }}</span>
+            </dd>
+          </dl>
+        </div>
+
+        @for (pair of view().teaserRows; track $index; let ri = $index) {
+          <div class="items-row cols-2 row-{{ ri }} row">
+            @for (t of pair; track t.title; let ci = $index) {
+              <div class="col-sm-6">
+                <app-blog-post-teaser
+                  [teaser]="t"
+                  [columnClass]="ci === 0 ? 'column-1' : 'column-2'"
+                  [genreLink]="view().genreLink"
+                  articleLink="/article"
+                />
+              </div>
+            }
+          </div>
+        }
+
+        <div class="pagination-wrap clearfix">
+          <div class="counter">Page 1 of 5</div>
+          <ul class="pagination">
+            <li class="disabled"><a>Start</a></li>
+            <li class="disabled"><a>Prev</a></li>
+            <li class="active"><a>1</a></li>
+            <li><a routerLink="/gallery" title="2">2</a></li>
+            <li><a routerLink="/gallery" title="3">3</a></li>
+            <li><a routerLink="/gallery" title="4">4</a></li>
+            <li><a routerLink="/gallery" title="5">5</a></li>
+            <li><a routerLink="/gallery" title="Next">Next</a></li>
+            <li><a routerLink="/gallery" title="End">End</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="t3-sidebar t3-sidebar-right col col-xs-12 col-sm-4">
+      <app-sidebar-follow-us />
+      <app-sidebar-latest-news [items]="latestNewsItems" />
+      <app-sidebar-most-read [rows]="mostReadWeek" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="row ja-news ja-news-2">
+  <app-uni-category-menu [items]="nav" />
+  @for (block of blocks; track $index) {
+    @switch (block.kind) {
+      @case ('medium') {
+        <app-uni-news-medium
+          [item]="block.item"
+          [accentClass]="accentClass"
+          [firstInRow]="block.firstInRow"
+        />
+      }
+      @case ('gallery') {
+        <div class="news-medium col-md-4 clearfix link-cat-orange">
+          <div id="ja-gallery-list-187" class="item-image ja-gallery-list">
+            <span class="btn-play">
+              <span class="ico ico-image"></span>
+              <span class="num-photos"> 4 Photos</span>
+            </span>
+            <a [routerLink]="galleryItem.titleLink" itemprop="url">
+              <img [src]="galleryItem.imageSrc" [alt]="galleryItem.imageAlt" itemprop="thumbnailUrl" />
+            </a>
+            <noscript> YOU MUST ENABLED JS </noscript>
+            <input
+              type="hidden"
+              value="[{&quot;href&quot;:&quot;/images/news-33.jpg&quot;,&quot;title&quot;:&quot;&quot;},{&quot;href&quot;:&quot;/images/news-20.jpeg&quot;,&quot;title&quot;:&quot;&quot;},{&quot;href&quot;:&quot;/images/news-16.jpeg&quot;,&quot;title&quot;:&quot;&quot;},{&quot;href&quot;:&quot;/images/news-17.jpeg&quot;,&quot;title&quot;:&quot;&quot;}]"
+            />
+          </div>
+          <span style="display: none" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="/images/logo.png" alt="" itemprop="image" />
+            <meta itemprop="height" content="auto" />
+            <meta itemprop="width" content="auto" />
+            <meta itemprop="url" content="/images/logo.png" />
+          </span>
+          <div class="article-content">
+            <aside class="article-aside aside-before-title">
+              <dl class="article-info muted">
+                <dd class="mod-articles-category-category">
+                  <a [routerLink]="galleryItem.categoryLink">{{ galleryItem.categoryLabel }}</a>
+                </dd>
+                <dd class="mod-articles-category-date">{{ galleryItem.dateLine }}</dd>
+              </dl>
+            </aside>
+            <h4 class="mod-articles-category-title">
+              <a [routerLink]="galleryItem.titleLink">{{ galleryItem.title }}</a>
+            </h4>
+            <p class="mod-articles-category-introtext">{{ galleryItem.intro }}</p>
+          </div>
+        </div>
+      }
+    }
+  }
+</div>

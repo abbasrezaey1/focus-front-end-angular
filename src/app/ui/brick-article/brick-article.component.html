@@ -1,0 +1,22 @@
+<div [class]="item.layoutClass">
+  <div class="inner">
+    <a
+      [routerLink]="item.articleLink"
+      class="item-image"
+      [title]="item.title"
+      [style.background-image]="backgroundStyle()"
+      ><span class="empty">empty</span></a
+    >
+    <span class="mod-articles-category-category" [class]="item.categoryBgClass">
+      <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>
+    </span>
+    <div class="article-content">
+      <h4 class="mod-articles-category-title">
+        <a [routerLink]="item.titleLink">{{ item.title }}</a>
+      </h4>
+      <aside class="article-aside clearfix">
+        <dl class="article-info muted"></dl>
+      </aside>
+    </div>
+  </div>
+</div>

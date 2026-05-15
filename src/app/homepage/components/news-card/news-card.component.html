@@ -1,0 +1,81 @@
+@switch (variant) {
+  @case ('big') {
+    <app-uni-news-lead
+      [accentClass]="accentClass"
+      [item]="asFeature()"
+      [leadLayout]="item.leadLayout ?? 'half'"
+      [clearfix]="item.leadClearfix ?? false"
+      [imageWrapperClass]="item.imageWrapperClass ?? 'pull-left item-image'"
+      [metaAfterTitle]="item.metaAfterTitle ?? false"
+    />
+  }
+  @case ('medium') {
+    <app-uni-news-medium
+      [accentClass]="accentClass"
+      [item]="asFeature()"
+      [firstInRow]="firstInRow"
+      [imageWrapperClass]="item.imageWrapperClass ?? imageWrapperClass"
+    />
+  }
+  @case ('normal') {
+    <app-uni-news-teaser
+      [accentClass]="accentClass"
+      [item]="asCompact()"
+      [colMd6]="colMd6"
+      [teaserClear]="item.teaserClear ?? false"
+      [clearfix]="item.teaserClearfix ?? true"
+      [imageWrapperClass]="item.imageWrapperClass ?? 'pull-left item-image'"
+    />
+  }
+  @case ('slider') {
+    <div class="brick-article brick-medium swiper-slide" [style.width.px]="slideWidthPx">
+      <div class="inner">
+        <a
+          [routerLink]="item.titleLink"
+          [title]="item.imageTitle ?? item.title"
+          class="item-image"
+          [style.background-image]="backgroundStyle()"
+          ><span class="empty">empty</span></a
+        >
+        @if (item.categoryBgClass) {
+          <span class="mod-articles-category-category" [ngClass]="item.categoryBgClass">
+            <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>
+          </span>
+        } @else {
+          <span class="mod-articles-category-category">
+            <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>
+          </span>
+        }
+        <div class="article-content">
+          <h4 class="mod-articles-category-title">
+            <a [routerLink]="item.titleLink">{{ item.title }}</a>
+          </h4>
+          @if (item.dateLine) {
+            <span class="mod-articles-category-date">{{ item.dateLine }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  }
+  @case ('video') {
+    <div class="news-normal clearfix" [ngClass]="accentClass">
+      <div class="pull-left item-image" itemprop="image">
+        <a [routerLink]="item.titleLink" itemprop="url">
+          <img [src]="item.imageSrc" [alt]="item.imageAlt" itemprop="thumbnailUrl" />
+        </a>
+      </div>
+      <div class="article-content">
+        <aside class="article-aside aside-before-title">
+          <app-article-meta
+            [categoryLabel]="item.categoryLabel"
+            [categoryLink]="item.categoryLink"
+            [dateLine]="item.dateLine"
+          />
+        </aside>
+        <h4 class="mod-articles-category-title">
+          <a [routerLink]="item.titleLink">{{ item.title }}</a>
+        </h4>
+      </div>
+    </div>
+  }
+}

@@ -1,0 +1,161 @@
+import type {
+  HomeBrickItem,
+  HomePoliticsBigItem,
+  HomePoliticsSidebarItem,
+} from '../models/content-blocks.model';
+import type { RectangleAdInput } from '../models/story-teaser.model';
+
+export const HOME_BRICK_ITEMS: HomeBrickItem[] = [
+  {
+    layoutClass: 'brick-article brick-big col-md-8',
+    imageSrc: '/images/news-1.jpg',
+    imageAlt: 'Donald Trump Threatens to Sue The Times Over Article on Unwanted  Advances',
+    articleLink: '/article',
+    categoryBgClass: 'bg-cat-blue',
+    categoryLink: '/category/world',
+    categoryLabel: 'World',
+    titleLink: '/subcategory',
+    title: 'Donald Trump Threatens to Sue The Times Over Article on Unwanted  Advances',
+  },
+  {
+    layoutClass: 'brick-article brick-medium col-sm-6 col-md-4',
+    imageSrc: '/images/news-21.jpeg',
+    imageAlt: 'Barack Obama Mourns Shimon Peres, and a Bygone Israel',
+    articleLink: '/gallery',
+    categoryBgClass: 'bg-cat-purple',
+    categoryLink: '/gallery',
+    categoryLabel: 'Food',
+    titleLink: '/category/politics',
+    title: 'Barack Obama Mourns Shimon Peres, and a Bygone Israel',
+  },
+  {
+    layoutClass: 'brick-article brick-medium col-sm-6 col-md-4',
+    imageSrc: '/images/news-3.jpg',
+    imageAlt: "Apple fires employee after daughter's video of iPhone X goes viral",
+    articleLink: '/article',
+    categoryBgClass: 'bg-cat-cyan',
+    categoryLink: '/category/tech',
+    categoryLabel: 'Tech',
+    titleLink: '/subcategory',
+    title: "Apple fires employee after daughter's video of iPhone X goes viral",
+  },
+  {
+    layoutClass: 'clear brick-article brick-small col-sm-6 col-md-3',
+    imageSrc: '/images/news-6.jpg',
+    imageAlt: 'NewsNow: Sport news | Breaking News & Search 24/7',
+    articleLink: '/article',
+    categoryBgClass: 'bg-cat-green',
+    categoryLink: '/category/sport',
+    categoryLabel: 'Sport',
+    titleLink: '/subcategory',
+    title: 'NewsNow: Sport news | Breaking News & Search 24/7',
+  },
+  {
+    layoutClass: 'brick-article brick-small col-sm-6 col-md-3',
+    imageSrc: '/images/news-7.jpg',
+    imageAlt: 'Breaking Celeb News, Entertainment News, and Celebrity Gossip',
+    articleLink: '/article',
+    categoryBgClass: 'bg-cat-yellow',
+    categoryLink: '/category/entertainment',
+    categoryLabel: 'Entertaiment',
+    titleLink: '/subcategory',
+    title: 'Breaking Celeb News, Entertainment News, and Celebrity Gossip',
+  },
+  {
+    layoutClass: 'brick-article brick-small col-sm-6 col-md-3',
+    imageSrc: '/images/news-13.jpeg',
+    imageAlt: 'Spain on the brink: VIOLENCE erupts as police chief sacked',
+    articleLink: '/gallery',
+    categoryBgClass: 'bg-cat-purple',
+    categoryLink: '/gallery',
+    categoryLabel: 'Food',
+    titleLink: '/category/politics',
+    title: 'Spain on the brink: VIOLENCE erupts as police chief sacked',
+  },
+  {
+    layoutClass: 'brick-article brick-small col-sm-6 col-md-3',
+    imageSrc: '/images/news-14.jpeg',
+    imageAlt: "Labour MP who said Remain voters better educated 'has facts on side'",
+    articleLink: '/gallery',
+    categoryBgClass: 'bg-cat-purple',
+    categoryLink: '/gallery',
+    categoryLabel: 'Food',
+    titleLink: '/category/politics',
+    title: "Labour MP who said Remain voters better educated 'has facts on side'",
+  },
+];
+
+export const HOME_POLITICS_NAV: { title: string; link: string }[] = [
+  { title: 'Election 2017', link: '/subcategory' },
+  { title: 'Debating', link: '/subcategory' },
+  { title: 'Opinion', link: '/subcategory' },
+];
+
+export const HOME_SIDEBAR_AD: RectangleAdInput = {
+  imageSrc: '/images/banner-2.jpg',
+  imageAlt: 'Sidebar 1',
+  width: 300,
+  height: 250,
+  externalHref: 'https://example.com',
+  title: 'Sidebar 1',
+};
+
+export const HOME_POLITICS_BIG: HomePoliticsBigItem = {
+  imageSrc: '/images/news-4.jpg',
+  imageAlt: '126 million Americans may have seen Russia-linked political posts',
+  categoryLabel: 'Election 2017',
+  categoryLink: '/article',
+  dateLine: 'Mar 9, 2022',
+  title: '126 million Americans may have seen Russia-linked political posts',
+  titleLink: '/subcategory',
+  intro:
+    'Feugiat ultrices enim tincidunt eget. Sed leo eros, faucibus at eros sollicitudin, vehicula auctor lacus. Integer tristique, nisl ac viverra...',
+};
+
+export const HOME_POLITICS_SIDEBAR: HomePoliticsSidebarItem[] = [
+  {
+    imageSrc: '/images/news-8.jpg',
+    imageAlt: 'News channel debating a topic for last 48 hours to prove that the topic should be ignored',
+    categoryLabel: 'Debating',
+    categoryLink: '/article',
+    dateLine: 'Mar 9, 2022',
+    title: 'News channel debating a topic for last 48 hours to prove that the topic should be ignored',
+    titleLink: '/subcategory',
+  },
+  {
+    imageSrc: '/images/news-11.jpg',
+    imageAlt: 'Comment, opinion and discussion from the Guardian US',
+    categoryLabel: 'Opinion',
+    categoryLink: '/article',
+    dateLine: 'Mar 9, 2022',
+    title: 'Comment, opinion and discussion from the Guardian US',
+    titleLink: '/subcategory',
+  },
+  {
+    imageSrc: '/images/news-20.jpeg',
+    imageAlt: 'Russian groups made 1,100 YouTube videos during 2016 US election',
+    categoryLabel: 'Election 2017',
+    categoryLink: '/article',
+    dateLine: 'Mar 9, 2022',
+    title: 'Russian groups made 1,100 YouTube videos during 2016 US election',
+    titleLink: '/subcategory',
+  },
+  {
+    imageSrc: '/images/news-19.jpg',
+    imageAlt: 'Debating China: The U.S.-China Relationship in Ten Conversations',
+    categoryLabel: 'Debating',
+    categoryLink: '/article',
+    dateLine: 'Mar 9, 2022',
+    title: 'Debating China: The U.S.-China Relationship in Ten Conversations',
+    titleLink: '/subcategory',
+  },
+  {
+    imageSrc: '/images/news-9.jpeg',
+    imageAlt: "'Free' illegal downloads could cost you big in malware",
+    categoryLabel: 'Opinion',
+    categoryLink: '/article',
+    dateLine: 'Mar 9, 2022',
+    title: "'Free' illegal downloads could cost you big in malware",
+    titleLink: '/subcategory',
+  },
+];

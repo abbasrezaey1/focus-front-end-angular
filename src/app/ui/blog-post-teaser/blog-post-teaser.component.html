@@ -1,0 +1,52 @@
+<div class="item" [class.column-1]="columnClass === 'column-1'" [class.column-2]="columnClass === 'column-2'" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article [class]="teaser.articleClass">
+    <div [class]="teaser.imageWrapperClass" itemprop="image">
+      <a [routerLink]="articleLink" itemprop="url">
+        <img [src]="teaser.imageSrc" [alt]="teaser.imageAlt" itemprop="thumbnailUrl" />
+      </a>
+    </div>
+
+    <aside class="article-aside clearfix">
+      <dl class="article-info muted">
+        <dt class="article-info-term">Details</dt>
+        <dd class="createdby hasTooltip" itemprop="author" title="" data-original-title="Written by ">
+          <span class="fa fa-user"></span>
+          <span>Super User</span>
+          <span style="display: none" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+              <img src="/images/logo.png" alt="logo" itemprop="url" />
+              <meta itemprop="width" content="auto" />
+              <meta itemprop="height" content="auto" />
+            </span>
+            <meta content="Super User" />
+            <meta itemprop="name" [attr.content]="teaser.title" />
+          </span>
+        </dd>
+        <dd class="category-name hasTooltip" title="" data-original-title="Category: ">
+          <i class="fa fa-folder-open"></i>
+          <a [routerLink]="genreLink"><span itemprop="genre">{{ teaser.genreName }}</span></a>
+        </dd>
+        <dd class="published hasTooltip" title="" data-original-title="Published: ">
+          <i class="fa fa-calendar"></i>
+          <time datetime="2022-03-09T02:08:58+00:00" itemprop="datePublished">
+            09 March 2022
+            <meta itemprop="datePublished" content="2022-03-09T02:08:58+00:00" />
+            <meta itemprop="dateModified" content="2022-03-09T02:08:58+00:00" />
+          </time>
+        </dd>
+      </dl>
+
+      <app-article-tools-dropdown [showEmail]="teaser.showEmailInTools" [printLink]="articleLink" />
+    </aside>
+
+    <header class="article-header clearfix">
+      <h3 class="article-title" itemprop="headline">
+        <a [routerLink]="articleLink" itemprop="url" [title]="teaser.title">{{ teaser.title }}</a>
+      </h3>
+    </header>
+
+    <section class="article-intro clearfix">
+      <p>{{ teaser.intro }}</p>
+    </section>
+  </article>
+</div>

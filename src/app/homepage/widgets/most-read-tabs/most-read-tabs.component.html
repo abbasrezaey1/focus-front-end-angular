@@ -1,0 +1,140 @@
+<div class="custom">
+  <div class="ja-tabswrap default" style="width: 100%">
+    <div id="myTab-1259997009" class="container">
+      <div class="ja-tabs-title-top" style="height: 30px">
+        <ul class="ja-tabs-title">
+          @for (t of tabs; track t.title; let i = $index) {
+            <li
+              [title]="t.title"
+              [class.first]="t.tabTitleClass === 'first'"
+              [class.last]="t.tabTitleClass === 'last'"
+              [class.active]="active === i"
+              (click)="selectTab(i)"
+            >
+              <h3><span>{{ t.title }}</span></h3>
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="ja-tab-panels-top" style="height: 541px">
+        @for (t of tabs; track t.title; let ti = $index) {
+          <div
+            class="ja-tab-content"
+            [style.display]="active === ti ? 'block' : 'none'"
+            [style.left.px]="0"
+            [style.top.px]="0"
+          >
+            <div class="ja-tab-subcontent">
+              <div class="ja-news ja-news-9">
+                @for (row of t.rows; track $index) {
+                  @switch (row.kind) {
+                    @case ('image') {
+                      <div class="news-normal clearfix" [ngClass]="row.accentClass">
+                        <div class="intro-image-wrap">
+                          <div
+                            [class]="row.imageWrapperClass ?? 'pull-left item-image'"
+                            itemprop="image"
+                          >
+                            <a [routerLink]="row.article.titleLink" itemprop="url">
+                              <img
+                                [src]="row.article.imageSrc"
+                                [alt]="row.article.imageAlt"
+                                itemprop="thumbnailUrl"
+                              />
+                            </a>
+                          </div>
+                          <span>{{ row.rank }}</span>
+                        </div>
+                        <div class="article-content">
+                          <aside class="article-aside aside-before-title">
+                            <dl class="article-info muted">
+                              @if (row.article.dateLine) {
+                                <dd class="mod-articles-category-date">{{ row.article.dateLine }}</dd>
+                              }
+                            </dl>
+                          </aside>
+                          <h4 class="mod-articles-category-title">
+                            <a [routerLink]="row.article.titleLink">{{ row.article.title }}</a>
+                          </h4>
+                        </div>
+                      </div>
+                    }
+                    @case ('gallery') {
+                      <div class="news-normal clearfix" [ngClass]="row.accentClass">
+                        <div class="intro-image-wrap">
+                          <div [id]="row.galleryId" class="item-image ja-gallery-list">
+                            <span class="btn-play">
+                              <span class="ico ico-image"></span>
+                              <span class="num-photos">{{ row.photosLabel }}</span>
+                            </span>
+                            <a [routerLink]="row.article.titleLink" itemprop="url">
+                              <img
+                                [src]="row.article.imageSrc"
+                                [alt]="row.article.imageAlt"
+                                itemprop="thumbnailUrl"
+                              />
+                            </a>
+                            <noscript> YOU MUST ENABLED JS </noscript>
+                            <input type="hidden" [value]="galleryJson(row.slides)" />
+                          </div>
+                          <span>{{ row.rank }}</span>
+                        </div>
+                        <span style="display: none" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                          <img src="/images/logo.png" alt="" itemprop="image" />
+                          <meta itemprop="height" content="auto" />
+                          <meta itemprop="width" content="auto" />
+                          <meta itemprop="url" content="/images/logo.png" />
+                        </span>
+                        <div class="article-content">
+                          <aside class="article-aside aside-before-title">
+                            <dl class="article-info muted"></dl>
+                          </aside>
+                          <h4 class="mod-articles-category-title">
+                            <a [routerLink]="row.article.titleLink">{{ row.article.title }}</a>
+                          </h4>
+                        </div>
+                      </div>
+                    }
+                    @case ('video') {
+                      <div class="news-normal clearfix" [ngClass]="row.accentClass">
+                        <div class="intro-image-wrap">
+                          <div
+                            class="item-image ja-video-list"
+                            [attr.data-url]="row.video.dataUrl"
+                            [attr.data-title]="row.video.dataTitle"
+                            [attr.data-video]="row.video.dataVideo"
+                          >
+                            <a class="btn-play" href="/article">
+                              <span class="ico ico-play"></span>
+                              <span class="empty">empty</span>
+                            </a>
+                            <a [routerLink]="row.article.titleLink" itemprop="url">
+                              <img
+                                [src]="row.article.imageSrc"
+                                [alt]="row.article.imageAlt"
+                                itemprop="thumbnailUrl"
+                              />
+                            </a>
+                          </div>
+                          <span>{{ row.rank }}</span>
+                        </div>
+                        <div class="article-content">
+                          <aside class="article-aside aside-before-title">
+                            <dl class="article-info muted"></dl>
+                          </aside>
+                          <h4 class="mod-articles-category-title">
+                            <a [routerLink]="row.article.titleLink">{{ row.article.title }}</a>
+                          </h4>
+                        </div>
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

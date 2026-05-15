@@ -1,0 +1,32 @@
+<div
+  class="news-normal"
+  [class.clearfix]="clearfix"
+  [class.clear]="teaserClear"
+  [ngClass]="accentClass"
+  [class.col-md-6]="colMd6"
+>
+  @if (!item.hideImage) {
+    <div [class]="imageWrapperClass" itemprop="image">
+      <a [routerLink]="item.titleLink" itemprop="url">
+        <img [src]="item.imageSrc" [alt]="item.imageAlt" itemprop="thumbnailUrl" />
+      </a>
+    </div>
+  }
+  <div class="article-content">
+    <aside class="article-aside aside-before-title">
+      <dl class="article-info muted">
+        @if (item.categoryLabel) {
+          <dd class="mod-articles-category-category">
+            <a [routerLink]="item.categoryLink">{{ item.categoryLabel }}</a>
+          </dd>
+        }
+        @if (item.dateLine) {
+          <dd class="mod-articles-category-date">{{ item.dateLine }}</dd>
+        }
+      </dl>
+    </aside>
+    <h4 class="mod-articles-category-title">
+      <a [routerLink]="item.titleLink">{{ item.title }}</a>
+    </h4>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<dl class="article-info muted">
+  @if (categoryLabel && categoryLink) {
+    <dd class="mod-articles-category-category">
+      <a [routerLink]="categoryLink">{{ categoryLabel }}</a>
+    </dd>
+  }
+  @if (dateLine) {
+    <dd class="mod-articles-category-date">{{ dateLine }}</dd>
+  }
+</dl>

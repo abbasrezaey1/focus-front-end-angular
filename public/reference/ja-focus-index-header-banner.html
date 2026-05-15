@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8" />
+    <title>JA Focus — static top leaderboard (template reference)</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      This is the same leaderboard block JA Focus puts near the top of index.html
+      (inside .t3-wrapper > .container-hd), before the topbar / header chrome.
+
+      The Angular shell mirrors this markup in the leaderboard component
+      (`src/app/layout/site-header/site-leaderboard-banner.component.html`).
+
+      Creative file: `src/assets/images/banner-1.png` (build emits `/images/banner-1.png`).
+    -->
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+      .container-hd {
+        max-width: 1600px;
+        margin: 0 auto;
+        background: #fff;
+        border-left: 1px solid #c8c8c8;
+        border-right: 1px solid #c8c8c8;
+        box-sizing: border-box;
+      }
+      .ja-banner.banner-top {
+        background: #f6f6f6;
+        border-bottom: 1px solid #e8e8e8;
+        box-sizing: border-box;
+        padding: 28px 16px;
+        min-height: 154px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ja-banner .container {
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .bannergroup {
+        padding: 16px 0;
+        text-align: center;
+      }
+      .banneritem img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        max-height: 90px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="t3-wrapper">
+      <div class="container-hd">
+        <div class="ja-banner banner-top text-center">
+          <div class="container">
+            <div class="bannergroup">
+              <div class="banneritem">
+                <a href="/category/world" title="Browse category">
+                  <img
+                    src="/images/banner-1.png"
+                    width="728"
+                    height="90"
+                    alt="Leaderboard advertisement"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </a>
+                <div class="clr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="padding: 1rem 1.5rem; color: #444; line-height: 1.5">
+      Open this URL from the dev server root (e.g. <code>http://localhost:4200/reference/ja-focus-index-header-banner.html</code>) so
+      <code>/images/banner-1.png</code> resolves from the dev server root (same asset as the Angular app).
+    </p>
+  </body>
+</html>

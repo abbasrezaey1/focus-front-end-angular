@@ -1,0 +1,24 @@
+<div id="t3-mainbody" class="container t3-mainbody">
+  <div class="row">
+    <div id="t3-content" class="t3-content col-xs-12">
+      <div class="item-page">
+        <article class="default">
+          <section class="article-content clearfix">
+            <h1>Gallery</h1>
+            <p>Photo grid migrated from the static gallery page (BlueImp styles are included globally for future use).</p>
+            <div class="row">
+              @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+                <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 12px">
+                  <a routerLink="/article">
+                    <img class="img-responsive" src="/images/news-14.jpeg" alt="Gallery item {{ i }}" />
+                  </a>
+                </div>
+              }
+            </div>
+            <p><a routerLink="/">Home</a></p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
